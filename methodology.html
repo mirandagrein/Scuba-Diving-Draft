@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methodology</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.65; margin: 40px auto; max-width: 900px; padding: 0 20px; color: #1f2937; }
+    h1, h2 { color: #111827; }
+    p { margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Research Methodology</h1>
+
+  <h2>Research Design</h2>
+  <p>
+    This project uses a primarily quantitative research design to examine how scuba-fatality patterns change over time, geography, depth, and incident characteristics. The analysis combines descriptive statistics (totals, shares, rankings), time comparisons, and proportion-based comparisons across categories.
+  </p>
+
+  <h2>Data Collection</h2>
+  <p>
+    The primary data source is the Divers Alert Network (DAN) annual diving reports. These reports provide annual fatality summaries and associated variables compiled in report tables. Variables extracted for this project include age, sex, diver level, country and region, depth at fatality, yearly fatality totals, breathing apparatus, buddy status, gas type, trigger of fatality, phase of dive, mechanism of injury, disabling injury, stated cause of death, month, medical examination information, medical history, BMI, certification level, years since initial certification, diving activity, visibility, sea conditions, current, equipment, and related fields.
+  </p>
+  <p>
+    Data was collected by downloading available DAN reports for 2010–2020 and manually extracting relevant tabular values into Excel files. Variables were separated into topic-specific files with each file organized by category and year.
+  </p>
+
+  <h2>Data Management and Preparation</h2>
+  <p>
+    The data management workflow was completed in Python using Jupyter Notebook. Steps included: 1. loading each Excel file into pandas DataFrames 2. normalizing inconsistent year labels 3. reshaping wide tables into long format 4. converting values to numeric format and handling blanks/non-numeric entries 5. creating proportion fields by dividing category counts by yearly totals.
+  </p>
+  <p>
+    For region-country data, region rows and country rows were separated to support both regional and country-level visualizations. For category fields such as trigger and mechanism, rankings were computed and then limited to top groups.
+  </p>
+
+  <h2>Methods of Analysis</h2>
+  <p>
+    Analysis and visualization were performed with pandas, NumPy, Matplotlib, and Seaborn in Jupyter. The following techniques were used:
+  </p>
+  <p>
+    Descriptive totals and trends: yearly fatality totals by region/country/category and line charts over time.<br />
+    Proportion analysis: category share of total fatalities by year to compare relative importance across years.<br />
+   Concentration analysis: top ranking and  comparisons to identify dominant categories.<br />
+   Comparative category analysis: trigger and mechanism top-5 categories by yearly proportion and overall proportion.<br />
+    Depth profile analysis: most common maximum-depth categories overall and by time period.
+  </p>
+  <p>
+    These methods are quantitative as my reserach question needs numeric-based evidence to answer. A limited qualitative component is present in interpretation, but the core evidence is numeric and chart-based.
+  </p>
+
+  <h2>Refinement Choices</h2>
+  <p>
+    To keep the project focused, the study was narrowed to 2010–2020 and to variables with usable and consistent structure across reports. Some fields that were inconsistently coded were excluded from advanced modeling and used for descriptive context only. In addition, certain visualizations were constrained to top categories to improve readability and prevent overplotting.
+  </p>
+
+  <h2>AI Tool Usage</h2>
+  <p>
+    This research used AI tools for data processing and analysis, including ChatGPT for generating code snippets and Claude for assisting with implentation of HTML. I used AI tools in a role to help reformat code and dataframes, troubleshoot errors in my data frames, and explore possible analytical approaches. These tools were especially useful when debugging Python and refining my workflow, but I made all final decisions about how the analysis should be conducted. 
+  </p>
+
+ 
+</body>
+</html>
