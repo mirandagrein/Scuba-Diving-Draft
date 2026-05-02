@@ -3,62 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Methodology</title>
+  <title>Methodology - Scuba Diving Fatalities Research</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.65; margin: 40px auto; max-width: 900px; padding: 0 20px; color: #1f2937; }
-    h1, h2 { color: #111827; }
-    p { margin-bottom: 14px; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: #3d4a56;
+      background: #f5f8fc;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fdfcfa;
+      border-bottom: 1px solid #e8ecf1;
+      padding: 20px 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #1a2634;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3d4a56;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0891b2;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%);
+      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #1a2634;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: #5a6b7a;
+      margin-top: 16px;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a2634;
+      margin: 48px 0 24px 0;
+      letter-spacing: -0.5px;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #5a6b7a;
+      margin-bottom: 24px;
+    }
+
+    br {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a2634;
+      color: #b0bcc7;
+      padding: 60px 40px;
+      border-top: 1px solid #e8ecf1;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .footer-section a {
+      color: #b0bcc7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #0891b2;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 14px;
+      color: #7a8a99;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      main {
+        padding: 40px 20px;
+      }
+
+      footer {
+        padding: 40px 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Research Methodology</h1>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Research</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="literature.html">Literature</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="findings.html">Findings</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <h2>Research Design</h2>
-  <p>
-    This project uses a primarily quantitative research design to examine how scuba-fatality patterns change over time, geography, depth, and incident characteristics. The analysis combines descriptive statistics (totals, shares, rankings), time comparisons, and proportion-based comparisons across categories.
-  </p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Research Methodology</h1>
+    <p class="hero-subtitle">The research design, data collection process, and analytical techniques</p>
+  </section>
 
-  <h2>Data Collection</h2>
-  <p>
-    The primary data source is the Divers Alert Network (DAN) annual diving reports. These reports provide annual fatality summaries and associated variables compiled in report tables. Variables extracted for this project include age, sex, diver level, country and region, depth at fatality, yearly fatality totals, breathing apparatus, buddy status, gas type, trigger of fatality, phase of dive, mechanism of injury, disabling injury, stated cause of death, month, medical examination information, medical history, BMI, certification level, years since initial certification, diving activity, visibility, sea conditions, current, equipment, and related fields.
-  </p>
-  <p>
-    Data was collected by downloading available DAN reports for 2010–2020 and manually extracting relevant tabular values into Excel files. Variables were separated into topic-specific files with each file organized by category and year.
-  </p>
+  <!-- Main Content -->
+  <main>
+    <h2>Research Design</h2>
+    <p>
+      This project uses a primarily quantitative research design to examine how scuba-fatality patterns change over time, geography, depth, and incident characteristics. The analysis combines descriptive statistics (totals, shares, rankings), time comparisons, and proportion-based comparisons across categories.
+    </p>
 
-  <h2>Data Management and Preparation</h2>
-  <p>
-    The data management workflow was completed in Python using Jupyter Notebook. Steps included: 1. loading each Excel file into pandas DataFrames 2. normalizing inconsistent year labels 3. reshaping wide tables into long format 4. converting values to numeric format and handling blanks/non-numeric entries 5. creating proportion fields by dividing category counts by yearly totals.
-  </p>
-  <p>
-    For region-country data, region rows and country rows were separated to support both regional and country-level visualizations. For category fields such as trigger and mechanism, rankings were computed and then limited to top groups.
-  </p>
+    <h2>Data Collection</h2>
+    <p>
+      The primary data source is the Divers Alert Network (DAN) annual diving reports. These reports provide annual fatality summaries and associated variables compiled in report tables. Variables extracted for this project include age, sex, diver level, country and region, depth at fatality, yearly fatality totals, breathing apparatus, buddy status, gas type, trigger of fatality, phase of dive, mechanism of injury, disabling injury, stated cause of death, month, medical examination information, medical history, BMI, certification level, years since initial certification, diving activity, visibility, sea conditions, current, equipment, and related fields.
+    </p>
+    <p>
+      Data was collected by downloading available DAN reports for 2010–2020 and manually extracting relevant tabular values into Excel files. Variables were separated into topic-specific files with each file organized by category and year.
+    </p>
 
-  <h2>Methods of Analysis</h2>
-  <p>
-    Analysis and visualization were performed with pandas, NumPy, Matplotlib, and Seaborn in Jupyter. The following techniques were used:
-  </p>
-  <p>
-    Descriptive totals and trends: yearly fatality totals by region/country/category and line charts over time.<br />
-    Proportion analysis: category share of total fatalities by year to compare relative importance across years.<br />
-   Concentration analysis: top ranking and  comparisons to identify dominant categories.<br />
-   Comparative category analysis: trigger and mechanism top-5 categories by yearly proportion and overall proportion.<br />
-    Depth profile analysis: most common maximum-depth categories overall and by time period.
-  </p>
-  <p>
-    These methods are quantitative as my reserach question needs numeric-based evidence to answer. A limited qualitative component is present in interpretation, but the core evidence is numeric and chart-based.
-  </p>
+    <h2>Data Management and Preparation</h2>
+    <p>
+      The data management workflow was completed in Python using Jupyter Notebook. Steps included: 1. loading each Excel file into pandas DataFrames 2. normalizing inconsistent year labels 3. reshaping wide tables into long format 4. converting values to numeric format and handling blanks/non-numeric entries 5. creating proportion fields by dividing category counts by yearly totals.
+    </p>
+    <p>
+      For region-country data, region rows and country rows were separated to support both regional and country-level visualizations. For category fields such as trigger and mechanism, rankings were computed and then limited to top groups.
+    </p>
 
-  <h2>Refinement Choices</h2>
-  <p>
-    To keep the project focused, the study was narrowed to 2010–2020 and to variables with usable and consistent structure across reports. Some fields that were inconsistently coded were excluded from advanced modeling and used for descriptive context only. In addition, certain visualizations were constrained to top categories to improve readability and prevent overplotting.
-  </p>
+    <h2>Methods of Analysis</h2>
+    <p>
+      Analysis and visualization were performed with pandas, NumPy, Matplotlib, and Seaborn in Jupyter. The following techniques were used:
+    </p>
+    <p>
+      Descriptive totals and trends: yearly fatality totals by region/country/category and line charts over time.<br />
+      Proportion analysis: category share of total fatalities by year to compare relative importance across years.<br />
+      Concentration analysis: top ranking and comparisons to identify dominant categories.<br />
+      Comparative category analysis: trigger and mechanism top-5 categories by yearly proportion and overall proportion.<br />
+      Depth profile analysis: most common maximum-depth categories overall and by time period.
+    </p>
+    <p>
+      These methods are quantitative as the research question needs numeric-based evidence to answer. A limited qualitative component is present in interpretation, but the core evidence is numeric and chart-based.
+    </p>
+  </main>
 
-  <h2>AI Tool Usage</h2>
-  <p>
-    This research used AI tools for data processing and analysis, including ChatGPT for generating code snippets and Claude for assisting with implentation of HTML. I used AI tools in a role to help reformat code and dataframes, troubleshoot errors in my data frames, and explore possible analytical approaches. These tools were especially useful when debugging Python and refining my workflow, but I made all final decisions about how the analysis should be conducted. 
-  </p>
-
- 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #b0bcc7;">A research project analyzing scuba diving fatalities to better understand risk factors and patterns in diving safety.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="literature.html">Literature</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="findings.html">Findings</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="works-cited.html">Works Cited</a></li>
+          <li><a href="Code.ipynb">Code Notebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scuba Diving Fatalities Research Project. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>

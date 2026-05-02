@@ -3,32 +3,406 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final Project</title>
+  <title>Scuba Diving Fatalities Research</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.65; margin: 40px auto; max-width: 900px; padding: 0 20px; color: #1f2937; }
-    h1 { color: #111827; margin-bottom: 8px; }
-    p { margin-bottom: 16px; }
-    ul { padding-left: 18px; }
-    li { margin-bottom: 10px; }
-    a { color: #0f766e; text-decoration: none; font-weight: 600; }
-    a:hover { text-decoration: underline; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: #3d4a56;
+      background: #f5f8fc;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fdfcfa;
+      border-bottom: 1px solid #e8ecf1;
+      padding: 20px 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #1a2634;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3d4a56;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0891b2;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%);
+      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #1a2634;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #5a6b7a;
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Hero Image Placeholder */
+    .hero-image-placeholder {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
+      border-radius: 8px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0891b2;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Intro Section */
+    .intro-section {
+      padding: 100px 0;
+      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .intro-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a2634;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
+    }
+
+    .intro-section p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #5a6b7a;
+      margin-bottom: 24px;
+      max-width: 800px;
+    }
+
+    /* Navigation Grid */
+    .nav-grid {
+      padding: 100px 0;
+    }
+
+    .nav-grid-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a2634;
+      margin-bottom: 48px;
+      letter-spacing: -0.5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 0;
+    }
+
+    .grid-item {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 40px;
+      background: #fdfcfa;
+      border-radius: 8px;
+      border: 1px solid #e8ecf1;
+      display: block;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .grid-item .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #0891b2;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .grid-item .title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a2634;
+      margin-bottom: 8px;
+    }
+
+    .grid-item .description {
+      font-size: 14px;
+      color: #7a8a99;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a2634;
+      color: #b0bcc7;
+      padding: 60px 40px;
+      margin-top: 100px;
+      border-top: 1px solid #e8ecf1;
+    }
+
+    footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .footer-section a {
+      color: #b0bcc7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #0891b2;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 14px;
+      color: #7a8a99;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      main {
+        padding: 0 20px;
+      }
+
+      footer {
+        padding: 40px 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Scuba Diving Fatalities Project</h1>
-  <h2>Introduction (Abstract)</h2>
-  <p>
-    This project analyzes scuba diving fatalities from data reports published by the Divers Alert Network (DAN). The primary objective of this study is to apply statistical methods to better understand the relationships and interaction effects among diver characteristics, environmental conditions, and incident-level factors associated with diver fatalities. The analysis incorporates exploratory data analysis and inferential techniques to evaluate associations between variables such as diver age, certification or experience level, dive depth, and environmental conditions.
-  </p>
-  <p>Select a section:</p>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Research</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="literature.html">Literature</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="findings.html">Findings</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <ul>
-    <li><a href="literature.html">Literature Review</a></li>
-    <li><a href="works-cited.html">Works Cited</a></li>
-    <li><a href="methodology.html">Methodology</a></li>
-    <li><a href="findings.html">Findings</a></li>
-    <li><a href="conclusion.html">Conclusion</a></li>
-    <li><a href="Code.ipynb">Code Notebook</a></li>
-  </ul>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Understanding Scuba Diving Fatalities</h1>
+      <p class="hero-subtitle">A comprehensive statistical analysis of diving incidents from 2010–2020, examining diver characteristics, environmental conditions, and incident factors associated with fatal outcomes.</p>
+      <div class="hero-image-placeholder">[Hero image goes here]</div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <h2>Project Overview</h2>
+      <p>
+        This research analyzes scuba diving fatalities from data reports published by the Divers Alert Network (DAN). The primary objective is to apply statistical methods to understand the relationships and interaction effects among diver characteristics, environmental conditions, and incident-level factors associated with fatal outcomes.
+      </p>
+      <p>
+        Through exploratory data analysis and inferential techniques, this study evaluates associations between variables such as diver age, certification level, dive depth, and environmental conditions—providing evidence on distributional patterns and priority areas for future inquiry.
+      </p>
+    </section>
+
+    <!-- Navigation Grid -->
+    <section class="nav-grid">
+      <h2 class="nav-grid-title">Explore the Research</h2>
+      
+      <div class="grid">
+        <a href="literature.html" class="grid-item">
+          <div class="label">Foundation</div>
+          <div class="title">Literature Review</div>
+          <div class="description">Dive into existing research on scuba diving safety and the gaps this project addresses through statistical analysis.</div>
+        </a>
+
+        <a href="methodology.html" class="grid-item">
+          <div class="label">Methods</div>
+          <div class="title">Methodology</div>
+          <div class="description">Learn about the research design, data collection process, and analytical techniques used in this investigation.</div>
+        </a>
+
+        <a href="findings.html" class="grid-item">
+          <div class="label">Analysis</div>
+          <div class="title">Findings</div>
+          <div class="description">Explore regional patterns, depth analysis, and key insights from 2010–2020 fatality data trends.</div>
+        </a>
+
+        <a href="conclusion.html" class="grid-item">
+          <div class="label">Summary</div>
+          <div class="title">Conclusion</div>
+          <div class="description">Review key findings, limitations, and future research questions emerging from this analysis.</div>
+        </a>
+
+        <a href="works-cited.html" class="grid-item">
+          <div class="label">Sources</div>
+          <div class="title">Works Cited</div>
+          <div class="description">Complete bibliography of sources and references used throughout the research project.</div>
+        </a>
+
+        <a href="Code.ipynb" class="grid-item">
+          <div class="label">Technical</div>
+          <div class="title">Code Notebook</div>
+          <div class="description">Access the Jupyter notebook containing all data processing, analysis, and visualization code.</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #b0bcc7;">A research project analyzing scuba diving fatalities to better understand risk factors and patterns in diving safety.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="literature.html">Literature</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="findings.html">Findings</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="works-cited.html">Works Cited</a></li>
+          <li><a href="Code.ipynb">Code Notebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scuba Diving Fatalities Research Project. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
