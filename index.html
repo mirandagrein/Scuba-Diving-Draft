@@ -141,6 +141,15 @@
       color: var(--muted);
     }
 
+    .hero-author {
+      margin-top: 12px;
+      font-size: 13px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -303,6 +312,13 @@
       background: var(--panel-soft);
     }
 
+    .search-chip.featured {
+      grid-column: 1 / -1;
+      padding: 24px;
+      background: linear-gradient(135deg, #eef8fc 0%, #fbfbf7 100%);
+      border-color: rgba(8, 145, 178, 0.18);
+    }
+
     .search-chip .chip-label {
       font-size: 11px;
       letter-spacing: 1.3px;
@@ -315,6 +331,13 @@
       font-size: 16px;
       color: var(--text);
       font-weight: 600;
+    }
+
+    .search-chip.featured .chip-value {
+      font-size: 24px;
+      line-height: 1.45;
+      font-weight: 700;
+      max-width: 22ch;
     }
 
     .section {
@@ -789,10 +812,11 @@
   <header class="hero" id="home">
     <div class="hero-shell">
       <div>
-        <div class="eyebrow">A study in risk, context, and patterns</div>
+        <div class="eyebrow">DCDA 2026 Capstone Project</div>
         <h1>Understanding scuba diving fatalities</h1>
+        <p class="hero-author">Miranda Grein</p>
         <p class="hero-subtitle">
-          Use this page as an action hub: review prior research, verify methods, inspect findings, and move directly to recommendations and code.
+          Data analysis project examining Scuba Diving fatalities from 2010-2020.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="literature.html">Read literature</a>
@@ -814,27 +838,29 @@
     <section class="search-panel" id="overview">
       <div>
         <div class="section-title">Project at a glance</div>
-        <h3>Search the project like a destination</h3>
+        <h3>Introduction</h3>
         <p>
-          Start here to confirm the dataset source, timeframe, and analysis focus before moving into methods and findings.
+          This project presents a data-driven analysis of scuba-diving fatalities reported by Divers Alert Network between 2010 and 2020. The study examines temporal, geographic, and incident-level patterns in order to identify the factors most consistently associated with fatal outcomes and to evaluate how those patterns can inform prevention.
+        </p>
+        <p>
+          The analysis integrates descriptive statistics, geographic comparison, and network-based modeling of fatal pathways. Across the dataset, fatalities appear concentrated within specific regions and countries, substantial counts occur in shallow-to-moderate depth ranges, and recurring breathing-related and ascent-related mechanisms emerge across multiple years. Network analysis further demonstrates that varied incident pathways frequently converge toward drowning, while cardiovascular and neurological disabling injuries function as important bridge points in fatal progression.
+        </p>
+        <p>
+          Taken together, these findings provide an evidence-based framework for understanding where risk is concentrated, how fatal events develop, and which points in the pathway may offer the greatest opportunity for intervention. The sections that follow present the project background, methodology, findings, and conclusions in a structured and accessible format.
         </p>
       </div>
       <div class="search-grid">
         <div class="search-chip">
-          <div class="chip-label">Source</div>
-          <div class="chip-value">Divers Alert Network</div>
+          <div class="chip-label">Dataset</div>
+          <div class="chip-value">DAN annual fatality reports</div>
         </div>
         <div class="search-chip">
-          <div class="chip-label">Scope</div>
+          <div class="chip-label">Timeframe</div>
           <div class="chip-value">2010 to 2020</div>
         </div>
-        <div class="search-chip">
-          <div class="chip-label">Focus</div>
-          <div class="chip-value">Fatality patterns</div>
-        </div>
-        <div class="search-chip">
-          <div class="chip-label">Format</div>
-          <div class="chip-value">Action-first briefing</div>
+        <div class="search-chip featured">
+          <div class="chip-label">Research Question</div>
+          <div class="chip-value">What factors most contribute to scuba-diving fatalities, and how can those patterns guide prevention?</div>
         </div>
       </div>
     </section>
@@ -842,12 +868,9 @@
     <section class="section" id="research">
       <div class="section-head">
         <div>
-          <div class="section-title">Explore the research</div>
-          <h2>Six simple paths through the project</h2>
+          <div class="section-title">Contents</div>
+          <h2>Project Navigation</h2>
         </div>
-        <p>
-          Follow these pages in order to build context, check methodology quality, interpret results, and identify next research actions.
-        </p>
       </div>
 
       <div class="feature-grid">
