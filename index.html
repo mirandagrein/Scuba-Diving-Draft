@@ -509,6 +509,78 @@
       color: var(--muted);
     }
 
+    .map-stage {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #f8fbfe 0%, #ffffff 100%);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .map-panel {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: min(100%, 1180px);
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(26, 38, 52, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.12);
+      overflow: hidden;
+      cursor: move;
+      touch-action: none;
+    }
+
+    .map-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      background: rgba(10, 159, 181, 0.06);
+      border-bottom: 1px solid rgba(26, 38, 52, 0.08);
+      cursor: move;
+      user-select: none;
+    }
+
+    .map-toolbar strong {
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .map-toolbar span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .map-toolbar a {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 620px;
+      border: 0;
+      display: block;
+      background: white;
+    }
+
+    .map-hint {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     footer {
       margin-top: 100px;
       background: var(--footer);
@@ -618,6 +690,18 @@
       .hero-visual {
         min-height: 420px;
       }
+
+      .map-stage {
+        min-height: 680px;
+      }
+
+      .map-panel {
+        width: calc(100% - 24px);
+      }
+
+      .map-frame {
+        height: 560px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -657,6 +741,27 @@
 
       .hero h1 {
         max-width: none;
+      }
+
+      .map-stage {
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .map-panel {
+        position: static;
+        width: 100%;
+        cursor: default;
+      }
+
+      .map-toolbar {
+        cursor: default;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .map-frame {
+        height: 520px;
       }
     }
   </style>
@@ -849,6 +954,32 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="map">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Interactive map</div>
+          <h2>Year-by-year country deaths on a movable map</h2>
+        </div>
+        <p>
+          This embeds the Plotly map exported from your notebook. It stays interactive, and the panel itself can be dragged on desktop.
+        </p>
+      </div>
+
+      <div class="map-stage" id="map-stage">
+        <div class="map-panel" id="map-panel">
+          <div class="map-toolbar" id="map-handle">
+            <div>
+              <strong>Geographic Analysis</strong>
+              <div class="map-hint">Drag this panel. Use scroll/zoom inside the map.</div>
+            </div>
+            <a href="map_total.html" target="_blank" rel="noopener">Open in full screen</a>
+          </div>
+          <iframe class="map-frame" src="map_total.html" title="Interactive scuba diving fatalities map"></iframe>
+        </div>
+      </div>
+      <p class="map-hint">If the map does not appear, make sure map_total.html exists in the same folder as this page.</p>
+    </section>
   </main>
 
   <footer>
@@ -891,5 +1022,61 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const panel = document.getElementById('map-panel');
+      const handle = document.getElementById('map-handle');
+      const stage = document.getElementById('map-stage');
+
+      if (!panel || !handle || !stage) return;
+
+      let dragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) return;
+
+      handle.addEventListener('pointerdown', (event) => {
+        dragging = true;
+        handle.setPointerCapture(event.pointerId);
+
+        const panelRect = panel.getBoundingClientRect();
+        const stageRect = stage.getBoundingClientRect();
+        offsetX = event.clientX - panelRect.left;
+        offsetY = event.clientY - panelRect.top;
+
+        panel.style.transition = 'none';
+      });
+
+      handle.addEventListener('pointermove', (event) => {
+        if (!dragging) return;
+
+        const stageRect = stage.getBoundingClientRect();
+        const panelRect = panel.getBoundingClientRect();
+        let x = event.clientX - stageRect.left - offsetX;
+        let y = event.clientY - stageRect.top - offsetY;
+
+        const maxX = stageRect.width - panelRect.width;
+        const maxY = stageRect.height - panelRect.height;
+
+        x = Math.max(0, Math.min(x, maxX));
+        y = Math.max(0, Math.min(y, maxY));
+
+        panel.style.left = x + 'px';
+        panel.style.top = y + 'px';
+      });
+
+      const stopDrag = () => {
+        dragging = false;
+        panel.style.transition = '';
+      };
+
+      handle.addEventListener('pointerup', stopDrag);
+      handle.addEventListener('pointercancel', stopDrag);
+      handle.addEventListener('lostpointercapture', stopDrag);
+    })();
+  </script>
 </body>
 </html>
