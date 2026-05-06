@@ -186,8 +186,10 @@
       overflow: hidden;
       border: 1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(26,38,52,0.08)),
-        linear-gradient(135deg, #d8edf7 0%, #bfe5ef 32%, #f8fbfe 100%);
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(26,38,52,0.22)),
+        url('Scuba1.JPG');
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
@@ -195,18 +197,18 @@
     }
 
     .hero-visual::before {
-      content: "Add your hero image here";
+      content: "Scuba1";
       position: absolute;
       inset: auto 22px 22px auto;
       z-index: 2;
-      background: rgba(253, 252, 250, 0.88);
-      color: var(--text);
-      font-size: 12px;
+      background: rgba(253, 252, 250, 0.55);
+      color: rgba(26, 38, 52, 0.65);
+      font-size: 11px;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(26, 38, 52, 0.08);
+      border: 1px solid rgba(26, 38, 52, 0.05);
     }
 
     .hero-card {
@@ -775,6 +777,8 @@
         <li><a href="literature.html">Literature</a></li>
         <li><a href="methodology.html">Methodology</a></li>
         <li><a href="findings.html">Findings</a></li>
+        <li><a href="scubadiving.html">Scuba Diving</a></li>
+        <li><a href="fatality.html">Fatality Framework</a></li>
         <li><a href="conclusion.html">Conclusion</a></li>
       </ul>
     </div>
@@ -798,9 +802,9 @@
 
       <div class="hero-visual">
         <div class="hero-card">
-          <div class="card-label">Project snapshot</div>
+          <div class="card-label">Scuba Diving fatality data</div>
           <div class="card-stat">2010–2020</div>
-          <div class="card-copy">DAN incident data, organized into a clean, luxury editorial layout.</div>
+          <div class="card-copy">Divers Alert Network</div>
         </div>
       </div>
     </div>
@@ -839,7 +843,7 @@
       <div class="section-head">
         <div>
           <div class="section-title">Explore the research</div>
-          <h2>Three simple paths through the project</h2>
+          <h2>Six simple paths through the project</h2>
         </div>
         <p>
           Similar to the resort website’s clean category blocks, these cards create a strong navigation system without relying on many images.
@@ -863,6 +867,24 @@
           <div class="label">Analysis</div>
           <h3>Findings</h3>
           <p>Regional patterns, depth findings, and the dominant trigger and mechanism trends discovered in the analysis.</p>
+        </a>
+
+        <a href="conclusion.html" class="feature-card">
+          <div class="label">Wrap-up</div>
+          <h3>Conclusion</h3>
+          <p>A concise summary of results, project limitations, and key directions for future work.</p>
+        </a>
+
+        <a href="scubadiving.html" class="feature-card">
+          <div class="label">Orientation</div>
+          <h3>Understand Scuba Diving</h3>
+          <p>Core diving concepts and terms to help interpret pathways, risk factors, and fatality mechanisms.</p>
+        </a>
+
+        <a href="fatality.html" class="feature-card">
+          <div class="label">Framework</div>
+          <h3>Fatality Investigation Framework</h3>
+          <p>A structured framework for tracing incidents from trigger to outcome and identifying intervention points.</p>
         </a>
       </div>
     </section>
@@ -978,7 +1000,7 @@
           <iframe class="map-frame" src="map_total.html" title="Interactive scuba diving fatalities map"></iframe>
         </div>
       </div>
-      <p class="map-hint">If the map does not appear, make sure map_total.html exists in the same folder as this page.</p>
+      <p class="map-hint">Note: Some countries may display missing or under-reported data.</p>
     </section>
   </main>
 
@@ -1003,6 +1025,8 @@
             <li><a href="literature.html">Literature</a></li>
             <li><a href="methodology.html">Methodology</a></li>
             <li><a href="findings.html">Findings</a></li>
+            <li><a href="scubadiving.html">Understand Scuba Diving</a></li>
+            <li><a href="fatality.html">Fatality Framework</a></li>
             <li><a href="conclusion.html">Conclusion</a></li>
           </ul>
         </div>

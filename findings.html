@@ -11,92 +11,153 @@
       padding: 0;
     }
 
+    :root {
+      --bg: #f5f8fc;
+      --panel: #fdfcfa;
+      --panel-soft: #fbfbf7;
+      --line: #e7ebf0;
+      --text: #1a2634;
+      --muted: #5a6b7a;
+      --accent: #0891b2;
+      --accent-soft: #dff4fb;
+      --footer: #1a2634;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.8;
-      color: #3d4a56;
-      background: #f5f8fc;
+      color: var(--muted);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
     }
 
     /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      background: #fdfcfa;
-      border-bottom: 1px solid #e8ecf1;
-      padding: 20px 0;
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
       z-index: 100;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
     }
 
     .logo {
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 2px;
-      color: #1a2634;
+      color: var(--text);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     nav ul {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       list-style: none;
-      gap: 40px;
+      gap: 28px;
     }
 
     nav a {
       text-decoration: none;
-      color: #3d4a56;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      color: #3f4e5d;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #0891b2;
+      color: var(--accent);
+    }
+
+    .announcement {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 40px 0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     /* Hero Section */
     .hero {
-      padding: 100px 40px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 40px 60px;
+    }
+
+    .hero-shell {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #f8fbfe 0%, #fdfcfa 100%);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06);
       text-align: center;
-      background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%);
-      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 700;
-      letter-spacing: -1px;
-      color: #1a2634;
-      line-height: 1.2;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      line-height: 1.02;
     }
 
     .hero-subtitle {
-      font-size: 16px;
-      color: #5a6b7a;
-      margin-top: 16px;
+      margin: 18px auto 0;
+      max-width: 700px;
+      font-size: 18px;
+      color: var(--muted);
     }
 
     /* Main Content */
     main {
-      max-width: 900px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 80px 40px;
+      padding: 0 40px 60px;
+    }
+
+    .content-shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 30px rgba(26, 38, 52, 0.05);
+      padding: 42px;
     }
 
     h2 {
       font-size: 28px;
       font-weight: 700;
-      color: #1a2634;
+      color: var(--text);
       margin: 48px 0 24px 0;
       letter-spacing: -0.5px;
     }
@@ -105,10 +166,31 @@
       margin-top: 0;
     }
 
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 36px 0 16px 0;
+      letter-spacing: -0.3px;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 16px 0;
+    }
+
+    .section-divider {
+      margin: 60px 0 40px 0;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
     p {
       font-size: 16px;
       line-height: 1.9;
-      color: #5a6b7a;
+      color: var(--muted);
       margin-bottom: 24px;
     }
 
@@ -120,20 +202,93 @@
     ul li {
       font-size: 16px;
       line-height: 1.9;
-      color: #5a6b7a;
+      color: var(--muted);
       margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: none;
+      background: linear-gradient(180deg, #7ccde2 0%, #52bdda 100%);
+      color: #0a2f3c;
+      box-shadow: 0 10px 22px rgba(8, 145, 178, 0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-section {
+      margin: 22px 0 34px;
+    }
+
+    .finding {
+      margin: 34px 0;
+      padding: 24px;
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px;
+    }
+
+    .finding h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .finding p {
+      margin-bottom: 12px;
+    }
+
+    .finding ul {
+      margin-bottom: 16px;
+    }
+
+    .finding-figure {
+      margin: 20px 0 6px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .finding-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .finding-figure figcaption {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4f6272;
     }
 
     /* Footer */
     footer {
-      background: #1a2634;
+      background: var(--footer);
       color: #b0bcc7;
       padding: 60px 40px;
-      border-top: 1px solid #e8ecf1;
+      border-top: 1px solid var(--line);
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -166,7 +321,7 @@
     }
 
     .footer-section a:hover {
-      color: #0891b2;
+      color: var(--accent);
     }
 
     .footer-bottom {
@@ -175,7 +330,7 @@
       text-align: center;
       font-size: 14px;
       color: #7a8a99;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
@@ -193,16 +348,28 @@
         font-size: 12px;
       }
 
-      .hero {
-        padding: 60px 20px;
+      .announcement {
+        padding: 12px 20px 0;
       }
 
       .nav-container {
         padding: 0 20px;
       }
 
+      .hero {
+        padding: 22px 20px 40px;
+      }
+
+      .hero-shell {
+        padding: 24px 20px;
+      }
+
       main {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
+      }
+
+      .content-shell {
+        padding: 30px 22px;
       }
 
       footer {
@@ -211,6 +378,10 @@
 
       h2 {
         font-size: 22px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
       }
     }
   </style>
@@ -225,21 +396,31 @@
         <li><a href="literature.html">Literature</a></li>
         <li><a href="methodology.html">Methodology</a></li>
         <li><a href="findings.html">Findings</a></li>
+        <li><a href="scubadiving.html">Scuba Diving</a></li>
+        <li><a href="fatality.html">Fatality Framework</a></li>
         <li><a href="conclusion.html">Conclusion</a></li>
       </ul>
     </div>
   </nav>
 
+  <div class="announcement">Scuba Diving Fatalities Research</div>
+
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Analysis & Findings</h1>
-    <p class="hero-subtitle">Key insights from 2010–2020 diving fatality data</p>
+    <div class="hero-shell">
+      <p class="eyebrow">Findings</p>
+      <h1>Analysis & Findings</h1>
+      <p class="hero-subtitle">Key insights from 2010–2020 diving fatality data</p>
+    </div>
   </section>
 
   <!-- Main Content -->
   <main>
-
+  <div class="content-shell">
   <h2>Regional and Country Patterns</h2>
+  <div class="btn-section">
+    <a href="#network-analysis" class="btn">Scuba Diving Fatalities Network Analysis</a>
+  </div>
   <p>
     The regional proportion analysis shows that fatalities are not evenly distributed across regions and that the regional composition changes over time. In several years, one region accounts for a large share of annual fatalities, while secondary regions shift in relative contribution. This suggests that year-specific context likely influences the annual distribution.
   </p>
@@ -254,19 +435,310 @@
 
   <h2>Trigger and Mechanism Findings</h2>
   <p>
-    Trigger and mechanism analyses (top-5 by yearly proportion and overall proportion) show clear concentration patterns. “Unknown” appears as a dominant category in both sections, which indicates a major reporting/classification limitation. Excluding or separately handling “Unknown” materially changes the relative ranking of the remaining categories.
+    Trigger and mechanism analyses (top-5 by yearly proportion and overall proportion) show clear concentration patterns. "Unknown" appears as a dominant category in both sections, which indicates a major reporting/classification limitation. Excluding or separately handling "Unknown" materially changes the relative ranking of the remaining categories.
   </p>
   <p>
     Among known categories, breathing-related and ascent/pressure-related themes recur frequently across years. The yearly top-5 stacked charts show that category composition changes over time, but a small set of recurring categories accounts for much of the annual proportion.
   </p>
 
-    <h2>Interpretation</h2>
+  <h2>Interpretation</h2>
+  <ul>
+    <li>Fatalities are concentrated in specific regions and countries rather than evenly spread.</li>
+    <li>Shallow and moderate depth categories contain substantial counts, so risk messaging should not focus only on deep diving.</li>
+    <li>Trigger and mechanism categories are concentrated, with recurring patterns that may support targeted prevention priorities.</li>
+    <li>High "Unknown" shares limit causal certainty and should be treated as an analytic caveat.</li>
+  </ul>
+
+  <!-- Network Analysis Section -->
+  <section class="section-divider" id="network-analysis">
+    <h2>Scuba Diving Fatalities Network Analysis</h2>
+    <p style="font-size: 18px; color: #0891b2; margin-bottom: 32px;">Mapping Fatal Pathways in Scuba Diving Data from 2010–2020</p>
+
+    <!-- Context Subsection -->
+    <h3>Context</h3>
+    
+    <h4>Introduction</h4>
+    <p>
+      Scuba diving fatality count data tell us the official cause of death, but they don't explain why or how these fatalities cascade from a safe dive to a fatal dive. This network analysis was conducted to model scuba diving deaths as causal pathways. These are sequences of events that flow from initial triggers to ultimately cause of death.
+    </p>
+
+    <h4>Why Network Analysis?</h4>
+    <p>
+      Network analysis is appropriate because scuba fatalities are not usually caused by a single isolated factor. Instead, fatalities are caused through a sequence of connected events in which an initial trigger leads to one or more mechanisms, which produce a disabling agent, and ultimately result in a cause of death. A network framework is designed to study these types of interconnected pathways.
+    </p>
+    <p>
+      Traditional fatality reporting will list causes such as "drowning: 68%" but offers limited intervention insight. Network analysis reveals which pathways dominate and the routes that lead to the fatal outcomes.
+    </p>
+    <p>
+      <strong>Note:</strong> A Markov Chain is not suitable for this data due to lack of individual sequences (case-by-case transitions) and incomplete individual timelines of events.
+    </p>
+
+    <!-- Methodology Subsection -->
+    <h3 style="margin-top: 48px;">Methodology</h3>
+
+    <h4>The Model</h4>
+    <p>
+      The model uses data from the 2010–2020 Diver Alert Network annual dive reports. Categories are treated as a conceptual weighted pathway network, where fatalities move through four stages: Trigger, Mechanisms, Disabling Factor, and Cause of Death. Within each yearly dataset, fatalities were classified according to the specific category identified at each stage, along with the corresponding number of cases. These counts were then used as edge weights to represent the relative frequency of pathways linking one stage to the next.
+    </p>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Trigger</h4>
+    <p>Trigger is the initiating event or condition that starts the accident sequence and disrupts the safe dive. Triggers were separated into five categories:</p>
     <ul>
-      <li>Fatalities are concentrated in specific regions and countries rather than evenly spread.</li>
-      <li>Shallow and moderate depth categories contain substantial counts, so risk messaging should not focus only on deep diving.</li>
-      <li>Trigger and mechanism categories are concentrated, with recurring patterns that may support targeted prevention priorities.</li>
-      <li>High "Unknown" shares limit causal certainty and should be treated as an analytic caveat.</li>
+      <li><strong>Medical:</strong> Health Problem, Cardiac Event, Natural Disease, Heart Problems</li>
+      <li><strong>Human Behavior:</strong> Panic, Inexperience, Drug, Alcohol, Exertion</li>
+      <li><strong>Equipment:</strong> Breathing Issues Due to Equipment, Gas Toxicity, Malfunctioning Parts or Incorrect Usage</li>
+      <li><strong>Environmental:</strong> Entrapment, Entanglement</li>
+      <li><strong>Ascent / Buoyancy:</strong> Buoyancy Problem, Rapid Ascent</li>
     </ul>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Mechanism of Injury</h4>
+    <p>Mechanism is the process through which the trigger causes harm. It explains how the initial problem develops into a dangerous emergency. Mechanisms were separated into five categories:</p>
+    <ul>
+      <li><strong>Gas/Breathing:</strong> Out of Air, Breathing Issues, Gas Toxicity, Suffocation, Insufficient Breathing Gas, Immersion Pulmonary Edema, Asphyxia</li>
+      <li><strong>Human Behavior:</strong> Panic, Exhaustion, Intoxication, Diver Error</li>
+      <li><strong>Pressure/Ascent:</strong> Deep Dive Ascent, Breath-Hold Ascent, Decompression Sickness, Buoyancy, Rapid Ascent</li>
+      <li><strong>Medical:</strong> Hypertension/Cardiovascular Disease, Heart Problem, Stroke, Seizure, Natural Disease</li>
+      <li><strong>Environmental / Equipment:</strong> Striking an Object, Entanglement, Equipment Malfunction, Marine Life Attack</li>
+    </ul>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Disabling Injury</h4>
+    <p>Disabling Injury is responsible for incapacitation. When a death occurs after the diver leaves the water, the Cause of Death and Disabling Injury are usually the same. Disabling Injuries were sorted into four categories:</p>
+    <ul>
+      <li><strong>Drowning / Respiratory:</strong> Respiratory Distress, Immersion Pulmonary Edema, Drowning, Asphyxia</li>
+      <li><strong>Cardiovascular / Neurological:</strong> Cardiac, Stroke, Loss of Consciousness, Seizure, General Health Issue</li>
+      <li><strong>Pressure Injury:</strong> Arterial Gas Embolism, Decompression Sickness, Pressure-Related</li>
+      <li><strong>Environmental:</strong> Blunt Head Trauma, Striking Object, Bite from Marine Life, Carbon Monoxide Poisoning</li>
+    </ul>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Cause of Death</h4>
+    <p>Cause of death is the final medical reason the diver dies and is extracted from the autopsy report. Categories were sorted into five groups:</p>
+    <ul>
+      <li><strong>Drowning:</strong> Drowning, Respiratory Issue, Asphyxia, Immersion Pulmonary Edema</li>
+      <li><strong>Cardiac / Heart:</strong> Cardiac Issue, Heart Problem, Cardiovascular Disease</li>
+      <li><strong>Pressure Injury:</strong> Decompression Sickness, Pressure-Related, Arterial Gas Embolism</li>
+      <li><strong>Trauma / Toxic:</strong> Carbon Monoxide Poisoning, Head/Brain Injury, Blunt Force Impact, Intoxication</li>
+      <li><strong>Environmental:</strong> Marine Life Bite, Bite Venom, Entanglement</li>
+    </ul>
+
+    <p style="margin-top: 24px;">
+      Categories within each stage were created because raw categories are often too granular. Some factors such as arterial gas embolism and decompression sickness are results of the same ultimate factor (pressure changes), so combining them reduces noise, makes pathways clearer, increases statistical reliability, and aligns with clinical/physiological reality.
+    </p>
+
+    <h4>Python Methodology</h4>
+    <p>
+      Proportion tables were created for each stage. For each year, each category's percentage of that stage's total is calculated. This normalizes across years so that changes in total incident numbers don't artificially inflate pathways. Some years have more total counts, so proportions accurately indicate the more common categories.
+    </p>
+    <p>
+      Edges are built by multiplying proportions across stages. This represents co-occurrence probability. For example, if equipment failures happen 20% of the time in triggers, and gas problems happen 30% of the time in mechanisms, their combined pathway weight reflects the probability that an equipment failure leads through to a gas mechanism.
+    </p>
+    <p>
+      The proportions are then scaled by year totals. This converts proportions back into meaningful magnitude. For example, a 6% pathway in a year with 50 total incidents has different weight than if the 6% was in a year with 500 incidents.
+    </p>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Converting to NetworkX DiGraph</h4>
+    <p>
+      A digraph is a directed graph in which edges have direction. This represents the flow from trigger to mechanism to disabling agent to cause of death as causal sequences flow in one direction. Each edge carries a weight which is the calculated pathway strength.
+    </p>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Metrics</h4>
+    <p>
+      Strengths such as In-Strength, Out-Strength, and Total Strength were calculated:
+    </p>
+    <ul>
+      <li><strong>In-Strength:</strong> How much "flow" comes into this node (how important is it as a destination?)</li>
+      <li><strong>Out-Strength:</strong> How much "flow" goes out of this node (how important is it as an origin?)</li>
+      <li><strong>Total Strength:</strong> Sum of In and Out strength; raw "traffic" through the node</li>
+    </ul>
+    <p>
+      For example, the drowning cause of death has 201.1 in-strength and 0 out-strength, representing that it's terminal with no other route possible. Cardiovascular/Neuro Disabling Agent has 117.98 in-strength and 156.51 out-strength, indicating it is a hub. Clinical interpretation: Strength tells you the magnitude of the problem. Drowning's high in-strength means lots of pathways lead there. Cardiovascular's high out-strength means many pathways diverge, some to drowning and some to other causes.
+    </p>
+    <p>
+      <strong>PageRank</strong> was also computed. PageRank is a ranking of important nodes determined by whether they receive edges from important nodes, weighted by edge strength. The algorithm respects edge weights, so a strong pathway contributes more to importance than a weak one.
+    </p>
+    <ul style="margin: 16px 0;">
+      <li>Drowning (0.173) is the most central outcome</li>
+      <li>Cardiovascular/Neuro (0.109) is the most central disabling factor</li>
+      <li>Equipment Trigger (0.023) is less central despite high volume</li>
+      <li>Drowning is central because everything flows there. Equipment is high-volume but not "central" because it's on the periphery (just triggers).</li>
+    </ul>
+    <p>
+      <strong>Betweenness Centrality</strong> was computed to find the shortest path for every pair of nodes. This metric identifies which nodes lie in the middle of the most important routes when events move from one category to another. High betweenness allows us to find where the highest leverage is for intervention.
+    </p>
+    <p>
+      Visualizations were then created representing node sizes and edge width. Larger nodes represent nodes with more traffic through them. Edges are proportional to pathway weight and thicker edges represent stronger pathways.
+    </p>
+
+    <!-- Findings Subsection -->
+    <h3 style="margin-top: 48px;">Findings</h3>
+
+    <div class="finding">
+      <h4>Pathway Summary Graphic</h4>
+      <figure class="finding-figure">
+        <img src="Pathway.png" alt="Pathway summary graphic showing dominant route progression from trigger to fatal outcome" />
+        <figcaption>Pathway summary graphic showing dominant route progression from trigger to fatal outcome.</figcaption>
+      </figure>
+      <p><strong>Visual Key:</strong></p>
+      <ul>
+        <li><strong>Big circles (nodes):</strong> More total pathway strength, meaning more overall traffic through that category.</li>
+        <li><strong>Strong/thick edges:</strong> Higher pathway weight, meaning a more frequent or stronger connection between stages.</li>
+        <li><strong>Arrow direction:</strong> Flow moves from trigger to mechanism to disabling injury to cause of death.</li>
+      </ul>
+    </div>
+
+    <div class="finding">
+      <h4>(1) Dominant Outcome: Drowning as the Fatal Bottleneck</h4>
+      <p>
+        Drowning received 201.1 units of incoming strength, more than double any other cause, so drowning is the dominant fatal pathway in the dataset. 68% of all fatal outcomes converge at drowning, indicating many distinct triggers (seizure, trauma, cardiac arrest, entrapment, intoxication, equipment failure) funnel into a single physiological end state.
+      </p>
+      <p>
+        The immediate mechanical event is loss of airway protection, which allows water in. This means the critical intervention is preventing loss of airway protection rather than just addressing the initial trigger alone.
+      </p>
+      <p><strong>Why Airway Protection is the Critical Intervention Point:</strong></p>
+      <ul>
+        <li><strong>Final Common Pathway:</strong> Regardless of whether the initial event was a seizure, fall, or equipment failure, death results from failure to maintain a clear airway and effective gas intake from the scuba cylinder.</li>
+        <li><strong>Prevention Logic:</strong> Interventions that prevent airway disruption (floatation to keep airway above water, immediate retrieval and ventilation) interrupt the pathway of multiple different triggers and therefore have the greatest impact on survival.</li>
+        <li><strong>Clinical Window:</strong> Early restoration of a functioning airway (CPR, rescue breaths, airway maneuvers, oxygen, advanced airway) can prevent progression to irreversible brain injury even when the inciting event cannot be prevented.</li>
+      </ul>
+      <p><strong>Real-World Applications of Preventative Techniques:</strong></p>
+      <ul>
+        <li><strong>Primary Prevention:</strong> Barriers/fencing, buddy systems, supervision, strict dive limitations to ensure only licensed divers, limits on alcohol around water, seizure precautions near water.</li>
+        <li><strong>Rescue Protocols:</strong> Once a diver loses consciousness, aspirates fluid, or cannot control breathing, death is extremely rapid and difficult to reverse. Rescue protocols must emphasize immediate recovery of unconscious divers to prevent aspiration.</li>
+      </ul>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/01_cause_nodes_incoming_strength.png" alt="Cause nodes by incoming strength showing drowning as the dominant fatal bottleneck" />
+        <figcaption>Cause nodes ranked by incoming strength. Drowning is the dominant final outcome in the network.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(2) Hub Node: Cardiovascular and Neurological Disabling Injuries</h4>
+      <p>
+        This node is the main systemic failure point in the network because it had the highest total strength (274.5) with massive bidirectional flow: in-strength of 117.98 units and out-strength of 156.51. This pattern suggests it is a transformation node where different kinds of physiological stress are converted into a common fatal pathway.
+      </p>
+      <p>
+        Its bidirectional structure is especially important. It receives damage from multiple sources but also sends that damage outward toward drowning. This means it acts as a bridge between initial triggers and final fatal outcomes. A person may begin with a respiratory problem, a cardiac event, or a neurological disturbance, but once the cardiovascular/neurological system is compromised, the pathway often narrows toward unconsciousness and submersion-related death. From this node, most pathways lead to drowning (92.43 units).
+      </p>
+      <p>
+        The betweenness centrality value (0.743) reinforces this interpretation. A high betweenness centrality means the node lies on many of the shortest paths connecting one part of the network to another. Many upstream problems pass through this point before becoming drowning deaths, making it one of the highest-leverage intervention targets in the entire system.
+      </p>
+      <p><strong>Clinical Takeaway:</strong> If you could prevent unconsciousness or cardiac collapse, you could prevent ~45% of drowning deaths. This is where prevention should focus hardest. Prevention should not focus only on the final act of drowning, but on the earlier failure of consciousness and circulation that makes drowning possible.</p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/02_disabling_nodes_out_strength.png" alt="Disabling injury nodes by out-strength highlighting cardiovascular and neurological hub behavior" />
+        <figcaption>Disabling injury nodes by out-strength. Cardiovascular/neurological pathways act as a central bridge to fatal outcomes.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(3) Equipment and Gas-Related Mechanisms as Primary Triggers</h4>
+      <p>
+        Equipment Trigger (72.25 strength) is the largest initiating factor, and Gas/Breathing Mechanism (151.77 strength) amplifies problems. This means many underwater deaths begin with a problem in the gear itself. Once equipment fails, the diver is immediately exposed to conditions that can escalate very quickly into breathing distress, panic, and then drowning.
+      </p>
+      <p>
+        What makes the Gas/Breathing Mechanism especially dangerous is that it acts as a rapid amplifier. Underwater, breathing problems are not slow or recoverable in the same way they might be on land. If gas supply is interrupted, contaminated, or inaccessible, the body is forced into an immediate survival response.
+      </p>
+      <p><strong>Equipment Trigger Pathways:</strong></p>
+      <ul>
+        <li><strong>Equipment to Gas Mechanism (25.18 weight):</strong> Direct equipment failure leading to breathing problems</li>
+        <li><strong>Equipment to Pressure Mechanism (20.99 weight):</strong> Buoyancy failure leading to uncontrolled ascent/descent, which leads to pressure injury</li>
+      </ul>
+      <p><strong>Clinical Takeaway:</strong> Equipment failure is the main initiating event, but gas compromise is the mechanism that most quickly turns that failure into a fatal event. Prevention should focus on both reliable gear and rapid recognition of breathing problems.</p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/03_top_trigger_to_mechanism_pathways.png" alt="Top trigger to mechanism pathways emphasizing equipment and gas related routes" />
+        <figcaption>Top trigger-to-mechanism pathways. Equipment-origin pathways feed strongly into gas/breathing failure routes.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(4) Pressure/Ascent as a Significant Alternate Pathway</h4>
+      <p>
+        Pressure/Ascent Mechanism (135.38 strength) is nearly tied with Gas/Breathing as the second most important mechanism. This means rapid pressure changes cause major complications such as decompression sickness, barotrauma, nitrogen narcosis, and inner ear problems. These lead to both neurological problems (disorientation) and respiratory distress. Decompression-related injuries (40.95 weight reaching Pressure Injury Cause) are more treatable if the victim reaches a chamber in time, but contributes to loss of consciousness pathway to drowning.
+      </p>
+      <p><strong>Rapid Ascent Effects:</strong></p>
+      <ul>
+        <li>Vertigo and disorientation from inner ear barotrauma</li>
+        <li>Nitrogen narcosis ("rapture of the deep") causing panic</li>
+        <li>Air expansion injuries</li>
+      </ul>
+      <p>
+        They cause damage through different mechanisms (tissue bubble formation, barotrauma, narcosis, neurological disruption) rather than asphyxia. Because pressure injuries often do not cause immediate death but instead cause disorientation, pain, or paralysis, they can lead to drowning if the victim cannot exit the water or self-rescue. Prevention requires safe ascent procedures, depth limits, and decompression protocols, which fall under proper dive planning and training.
+      </p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/04_top_mechanism_to_disabling_pathways.png" alt="Top mechanism to disabling pathways showing pressure and ascent related routes" />
+        <figcaption>Top mechanism-to-disabling pathways. Pressure/ascent mechanisms form a major alternate pathway toward disabling injury.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(5) Network Communities: Two Distinct Intervention Phases</h4>
+      <p>
+        The network splits into two communities representing different intervention opportunities:
+      </p>
+      <ul>
+        <li><strong>C1 (Initiation Phase):</strong> Triggers and Mechanisms</li>
+        <li><strong>C2 (Finalization Phase):</strong> Disabling Factors and Causes</li>
+      </ul>
+      <p>There are two different types of intervention points:</p>
+      <ul>
+        <li><strong>Prevention (C1):</strong> Prevent the trigger or manage the mechanism through pre-dive safety checks, training, equipment maintenance, and physical fitness screening</li>
+        <li><strong>Crisis Management (C2):</strong> Interrupt the disabling phase or reverse it through rescue protocols, CPR, emergency oxygenation, and decompression chamber access</li>
+      </ul>
+      <p>
+        The main finding is that most network weight is in C2. This shows that many triggers are not prevented or managed early. Therefore, more fatalities are determined by whether rescue occurs than by preventing the initial trigger. Investment in rescue may be as important as safety training.
+      </p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/06_community_composition_by_strength.png" alt="Community composition by strength separating initiation and finalization phases" />
+        <figcaption>Community composition by strength. The network separates into initiation and finalization phases with most weight in finalization.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(6) The Four Deadliest Pathways (Accounting for 78% of All Deaths)</h4>
+      <p><strong>Pathway 1: Cardiovascular/Neuro to Drowning (92.43 weight) — 31% of all fatal outcomes</strong></p>
+      <ul>
+        <li>Mechanisms: Loss of consciousness, cardiac arrest, stroke, seizure</li>
+        <li>Cannot be prevented by equipment alone; requires medical screening and rapid rescue</li>
+      </ul>
+      <p><strong>Pathway 2: Respiratory Disabling to Drowning (69.80 weight) — 23% of all fatal outcomes</strong></p>
+      <ul>
+        <li>Direct aspiration and fluid in lungs, often combined with hypoxia-induced loss of consciousness</li>
+        <li>Preventable through equipment maintenance and breathing control training</li>
+      </ul>
+      <p><strong>Pathway 3: Gas Mechanism to Cardiovascular to Drowning (39.45 weight) — 13% of all fatal outcomes</strong></p>
+      <ul>
+        <li>Equipment/air problems → panic/hypoxia → loss of consciousness → drowning</li>
+        <li>Most preventable pathway with proper training and equipment</li>
+      </ul>
+      <p><strong>Pathway 4: Pressure Injury Disabling to Drowning (34.12 weight) — 11% of all fatal outcomes</strong></p>
+      <ul>
+        <li>Decompression sickness or barotrauma to loss of function to drowning</li>
+        <li>Requires training and strict dive profile adherence</li>
+      </ul>
+      <p style="margin-top: 20px;">Focusing on these four pathways would prevent the majority of fatalities.</p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/05_four_priority_fatal_pathways.png" alt="Four priority fatal pathways accounting for most deaths" />
+        <figcaption>Four highest-priority fatal pathways that account for the majority of deaths in the modeled network.</figcaption>
+      </figure>
+    </div>
+
+    <div class="finding">
+      <h4>(7) What Is Not Killing Divers</h4>
+      <p>
+        <strong>Environmental Trigger to Environmental Cause</strong> has very low weight. Shark attacks, entanglement, and adverse conditions are dramatic but rare. Most environmental incidents still cascade through physiological failures first.
+      </p>
+      <p>
+        <strong>Human Behavior Alone</strong> (Panic, Intoxication) has lower weight than equipment issues, suggesting physical failures are bigger issues than psychological state. Psychology still amplifies other problems, but alone it does not hold as much weight.
+      </p>
+      <p>
+        <strong>Trauma/Toxic Causes</strong> are minimal (5.83 weight). Most deaths are not from poison, gas toxicity, or head injury. Almost all involve respiratory or cardiovascular mechanisms.
+      </p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/07_cause_in_strength_comparison.png" alt="Comparison of cause in-strength values showing lower weight for trauma toxic and environmental outcomes" />
+        <figcaption>Cause in-strength comparison highlights relatively low contribution from trauma/toxic and environmental causes.</figcaption>
+      </figure>
+    </div>
+
+  </section>
+  </div>
   </main>
 
   <!-- Footer -->
@@ -283,6 +755,7 @@
           <li><a href="literature.html">Literature</a></li>
           <li><a href="methodology.html">Methodology</a></li>
           <li><a href="findings.html">Findings</a></li>
+          <li><a href="scubadiving.html">Understand Scuba Diving</a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -291,6 +764,7 @@
           <li><a href="conclusion.html">Conclusion</a></li>
           <li><a href="works-cited.html">Works Cited</a></li>
           <li><a href="Code.ipynb">Code Notebook</a></li>
+          <li><a href="fatality.html">Fatality Framework</a></li>
         </ul>
       </div>
     </div>

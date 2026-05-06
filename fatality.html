@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatality Investigation Framework - Scuba Diving Fatalities Research</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #3d4a56; background: #f5f8fc; }
+    nav { position: sticky; top: 0; background: #fdfcfa; border-bottom: 1px solid #e8ecf1; padding: 20px 0; z-index: 100; }
+    .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #1a2634; text-transform: uppercase; }
+    nav ul { display: flex; list-style: none; gap: 32px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a { text-decoration: none; color: #3d4a56; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.3s ease; }
+    nav a:hover { color: #0891b2; }
+    .hero { padding: 100px 40px; text-align: center; background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%); border-bottom: 1px solid #e8ecf1; }
+    .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; color: #1a2634; line-height: 1.2; }
+    .hero-subtitle { font-size: 16px; color: #5a6b7a; margin-top: 16px; }
+    main { max-width: 920px; margin: 0 auto; padding: 80px 40px; }
+    h2 { font-size: 28px; font-weight: 700; color: #1a2634; margin: 48px 0 20px; letter-spacing: -0.5px; }
+    h2:first-child { margin-top: 0; }
+    p { font-size: 16px; line-height: 1.9; color: #5a6b7a; margin-bottom: 22px; }
+    .framework-step { background: #fdfcfa; border: 1px solid #e8ecf1; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+    .framework-step h3 { font-size: 18px; color: #1a2634; margin-bottom: 8px; }
+    .framework-step p { margin-bottom: 0; }
+    .key-list { margin: 0 0 24px 24px; }
+    .key-list li { margin-bottom: 12px; color: #5a6b7a; }
+    footer { background: #1a2634; color: #b0bcc7; padding: 60px 40px; border-top: 1px solid #e8ecf1; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-section h3 { font-size: 14px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-section ul { list-style: none; margin: 0; padding: 0; }
+    .footer-section li { margin-bottom: 12px; font-size: 14px; }
+    .footer-section a { color: #b0bcc7; text-decoration: none; }
+    .footer-section a:hover { color: #0891b2; }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 32px; text-align: center; font-size: 14px; color: #7a8a99; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) { .hero h1 { font-size: 30px; } nav ul { gap: 16px; } nav a { font-size: 11px; } .hero { padding: 60px 20px; } .nav-container { padding: 0 20px; } main { padding: 40px 20px; } footer { padding: 40px 20px; } h2 { font-size: 22px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Research</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="literature.html">Literature</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="findings.html">Findings</a></li>
+        <li><a href="scubadiving.html">Scuba Diving</a></li>
+        <li><a href="fatality.html">Fatality Framework</a></li>
+        <li><a href="conclusion.html">Conclusion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Fatality Investigation Framework</h1>
+    <p class="hero-subtitle">A structured process for tracing incidents from trigger to fatal outcome</p>
+  </section>
+
+  <main>
+    <h2>Purpose</h2>
+    <p>
+      This framework organizes scuba fatality analysis into repeatable stages so each case can be evaluated consistently. It supports your network findings by separating initiation events from downstream physiological failure.
+    </p>
+
+    <h2>Five-step framework</h2>
+
+    <article class="framework-step">
+      <h3>Step 1 — Define incident context</h3>
+      <p>Capture setting variables first: location, depth range, conditions, diver profile, equipment configuration, and dive phase.</p>
+    </article>
+
+    <article class="framework-step">
+      <h3>Step 2 — Identify trigger</h3>
+      <p>Determine the initiating disruption (medical event, equipment issue, ascent/buoyancy problem, behavior factor, or environment factor).</p>
+    </article>
+
+    <article class="framework-step">
+      <h3>Step 3 — Map mechanism of injury</h3>
+      <p>Trace how the trigger turned into harm (gas/breathing compromise, pressure injury, panic cascade, cardiovascular stress, or trauma pathway).</p>
+    </article>
+
+    <article class="framework-step">
+      <h3>Step 4 — Record disabling injury</h3>
+      <p>Identify the incapacitating condition that removed self-rescue capacity (respiratory failure, cardiovascular/neurological collapse, pressure injury, etc.).</p>
+    </article>
+
+    <article class="framework-step">
+      <h3>Step 5 — Confirm final cause and intervention window</h3>
+      <p>Document final cause of death and note where prevention or rescue could have interrupted progression.</p>
+    </article>
+
+    <h2>How to use it with your data</h2>
+    <ul class="key-list">
+      <li>Code each case into the same stage order for comparability across years.</li>
+      <li>Quantify pathway weights between stages to locate high-frequency routes.</li>
+      <li>Separate prevention targets (early stage) from rescue targets (late stage).</li>
+      <li>Track unknown categories explicitly so reporting quality can be improved over time.</li>
+    </ul>
+
+    <p>
+      In your current project, this framework aligns directly with the strongest network results: repeated convergence toward drowning after respiratory and cardiovascular disabling pathways.
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p style="font-size: 14px; line-height: 1.6; color: #b0bcc7;">A research project analyzing scuba diving fatalities to better understand risk factors and patterns in diving safety.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="literature.html">Literature</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="findings.html">Findings</a></li>
+          <li><a href="scubadiving.html">Understand Scuba Diving</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="fatality.html">Fatality Framework</a></li>
+          <li><a href="conclusion.html">Conclusion</a></li>
+          <li><a href="works-cited.html">Works Cited</a></li>
+          <li><a href="Code.ipynb">Code Notebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scuba Diving Fatalities Research Project. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
