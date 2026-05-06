@@ -231,6 +231,14 @@
 
     .btn-section {
       margin: 22px 0 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .hero-shell .btn-section {
+      margin: 18px 0 0;
     }
 
     .finding {
@@ -509,18 +517,19 @@
   <section class="hero">
     <div class="hero-shell">
       <p class="eyebrow">Findings</p>
-      <h1>Analysis & Findings</h1>
-      <p class="hero-subtitle">Key insights from 2010–2020 diving fatality data</p>
+      <h1>Findings</h1>
+      <p class="hero-subtitle">Insights Navigation</p>
+      <div class="btn-section">
+        <a href="#regional-country-patterns" class="btn">Regional and Country Patterns</a>
+        <a href="#network-analysis" class="btn">Scuba Diving Fatalities Network Analysis</a>
+      </div>
     </div>
   </section>
 
   <!-- Main Content -->
   <main>
   <div class="content-shell">
-  <h2>Regional and Country Patterns</h2>
-  <div class="btn-section">
-    <a href="#network-analysis" class="btn">Scuba Diving Fatalities Network Analysis</a>
-  </div>
+  <h2 id="regional-country-patterns">Regional and Country Patterns</h2>
   <p>
     The regional proportion analysis shows that fatalities are not evenly distributed across regions and that the regional composition changes over time. In several years, one region accounts for a large share of annual fatalities, while secondary regions shift in relative contribution. This suggests that year-specific context likely influences the annual distribution.
   </p>
@@ -900,7 +909,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Scuba Diving Fatalities Research Project. All rights reserved.</p>
+      <p>&copy; 2026 Miranda Grein | Scuba Diving Fatalities Project</p>
     </div>
   </footer>
   <script>
