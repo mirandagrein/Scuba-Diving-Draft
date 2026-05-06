@@ -279,31 +279,71 @@
       color: #4f6272;
     }
 
-    .geo-section {
-      margin: 8px 0 22px;
-    }
-
-    .geo-section .geo-caption {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #4f6272;
-      margin: 10px 2px 0;
-    }
-
-    .geo-map {
+    .map-stage {
+      position: relative;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      background: #f8fbfe;
+      min-height: 760px;
       overflow: hidden;
-      background: #ffffff;
-      min-height: 300px;
+      border-radius: 8px;
+      margin-top: 20px;
     }
 
-    .geo-map iframe {
+    .map-panel {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: min(100%, 1180px);
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(26, 38, 52, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.12);
+      overflow: hidden;
+      cursor: move;
+      touch-action: none;
+    }
+
+    .map-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      background: rgba(10, 159, 181, 0.06);
+      border-bottom: 1px solid rgba(26, 38, 52, 0.08);
+      cursor: move;
+      user-select: none;
+    }
+
+    .map-toolbar strong {
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .map-toolbar a {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .map-frame {
       width: 100%;
-      height: 100%;
-      min-height: 300px;
+      height: 620px;
       border: 0;
       display: block;
+      background: white;
+    }
+
+    .map-hint {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     /* Footer */
@@ -411,9 +451,37 @@
         font-size: 16px;
       }
 
-      .geo-map,
-      .geo-map iframe {
-        min-height: 260px;
+      .map-stage {
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .map-panel {
+        position: static;
+        width: 100%;
+        cursor: default;
+      }
+
+      .map-toolbar {
+        cursor: default;
+      }
+
+      .map-frame {
+        height: 520px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .map-stage {
+        min-height: 680px;
+      }
+
+      .map-panel {
+        width: calc(100% - 24px);
+      }
+
+      .map-frame {
+        height: 560px;
       }
     }
   </style>
@@ -456,12 +524,19 @@
   <p>
     The regional proportion analysis shows that fatalities are not evenly distributed across regions and that the regional composition changes over time. In several years, one region accounts for a large share of annual fatalities, while secondary regions shift in relative contribution. This suggests that year-specific context likely influences the annual distribution.
   </p>
-  <div class="geo-section">
-    <div class="geo-map">
-      <iframe src="map_total.html" title="Geographic analysis map"></iframe>
+  <div class="map-stage" id="map-stage">
+    <div class="map-panel" id="map-panel">
+      <div class="map-toolbar" id="map-handle">
+        <div>
+          <strong>Geographic Analysis</strong>
+          <div class="map-hint">Drag this panel. Use scroll/zoom inside the map.</div>
+        </div>
+        <a href="map_total.html" target="_blank" rel="noopener">Open in full screen</a>
+      </div>
+      <iframe class="map-frame" src="map_total.html" title="Interactive scuba diving fatalities map"></iframe>
     </div>
-    <p class="geo-caption">Geographic analysis map (2010–2020): country-level fatality distribution over time.</p>
   </div>
+  <p class="map-hint">Note: Some countries may display missing or under-reported data.</p>
   <p>
     Country-level results show strong concentration among a small number of countries. The top-10 country trend chart indicates that one country consistently contributes the largest share of recorded fatalities, while the remaining top countries fluctuate more moderately from year to year.
   </p>
@@ -775,6 +850,25 @@
       </figure>
     </div>
 
+    <div class="finding">
+      <h4>(8) Intervention Impact Simulation (Modeled Scenarios)</h4>
+      <p>
+        A scenario-based intervention simulation was run on the weighted pathway network by reducing selected high-priority edges by 10%, 20%, and 30%, then recalculating total flow into <strong>Drowning Cause</strong>. This adds a practical prioritization layer by estimating which intervention points could create the largest modeled reduction in fatal endpoint flow.
+      </p>
+      <ul>
+        <li><strong>Strongest modeled intervention:</strong> Reducing <em>Cardio/Neuro Disabling → Drowning Cause</em> by 20% yields an estimated <strong>9.19%</strong> reduction in drowning flow (13.79% at 30%).</li>
+        <li><strong>Second highest:</strong> Reducing <em>Respiratory Disabling → Drowning Cause</em> by 20% yields an estimated <strong>6.94%</strong> reduction.</li>
+        <li><strong>Third highest:</strong> Reducing <em>Pressure Injury Disabling → Drowning Cause</em> by 20% yields an estimated <strong>3.39%</strong> reduction.</li>
+      </ul>
+      <p>
+        These are modeled estimates (not causal proof), but they indicate that intervention leverage is highest in late-stage disabling-to-cause transitions.
+      </p>
+      <figure class="finding-figure">
+        <img src="figures/network-analysis/08_intervention_impact_simulation_20pct.png" alt="Estimated reduction in drowning flow under 20 percent edge intervention scenarios" />
+        <figcaption>Estimated reduction in drowning flow for 20% intervention scenarios across priority pathways.</figcaption>
+      </figure>
+    </div>
+
   </section>
   </div>
   </main>
@@ -809,5 +903,60 @@
       <p>&copy; 2026 Scuba Diving Fatalities Research Project. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+    (function () {
+      const panel = document.getElementById('map-panel');
+      const handle = document.getElementById('map-handle');
+      const stage = document.getElementById('map-stage');
+
+      if (!panel || !handle || !stage) return;
+
+      let dragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (isMobile) return;
+
+      handle.addEventListener('pointerdown', (event) => {
+        dragging = true;
+        handle.setPointerCapture(event.pointerId);
+
+        const panelRect = panel.getBoundingClientRect();
+        const stageRect = stage.getBoundingClientRect();
+        offsetX = event.clientX - panelRect.left;
+        offsetY = event.clientY - panelRect.top;
+
+        panel.style.transition = 'none';
+      });
+
+      handle.addEventListener('pointermove', (event) => {
+        if (!dragging) return;
+
+        const stageRect = stage.getBoundingClientRect();
+        const panelRect = panel.getBoundingClientRect();
+        let x = event.clientX - stageRect.left - offsetX;
+        let y = event.clientY - stageRect.top - offsetY;
+
+        const maxX = stageRect.width - panelRect.width;
+        const maxY = stageRect.height - panelRect.height;
+
+        x = Math.max(0, Math.min(x, maxX));
+        y = Math.max(0, Math.min(y, maxY));
+
+        panel.style.left = x + 'px';
+        panel.style.top = y + 'px';
+      });
+
+      const stopDrag = () => {
+        dragging = false;
+        panel.style.transition = '';
+      };
+
+      handle.addEventListener('pointerup', stopDrag);
+      handle.addEventListener('pointercancel', stopDrag);
+      handle.addEventListener('lostpointercapture', stopDrag);
+    })();
+  </script>
 </body>
 </html>
