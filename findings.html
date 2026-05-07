@@ -521,6 +521,7 @@
       <p class="hero-subtitle">Insights Navigation</p>
       <div class="btn-section">
         <a href="#regional-country-patterns" class="btn">Regional and Country Patterns</a>
+        <a href="#medical-conditions-spearman" class="btn">Pre-Existing Medical Conditions</a>
         <a href="#network-analysis" class="btn">Scuba Diving Fatalities Network Analysis</a>
       </div>
     </div>
@@ -570,6 +571,104 @@
     <li>Trigger and mechanism categories are concentrated, with recurring patterns that may support targeted prevention priorities.</li>
     <li>High "Unknown" shares limit causal certainty and should be treated as an analytic caveat.</li>
   </ul>
+
+  <section class="section-divider" id="medical-conditions-spearman">
+    <h2>Pre-Existing Medical Conditions Spearman Rank correlation analysis</h2>
+    <p>
+      <strong>Are Certain Pre-Existing Medical Conditions Associated with Specific Disabling Injuries?</strong>
+    </p>
+    <h3>Spearman Rank Correlation Analysis</h3>
+
+    <h4>Introduction</h4>
+    <p>
+      To investigate potential relationships between diver pre-existing medical conditions and reasons for fatalities while diving, Spearman rank correlation coefficients were computed between the annual prevalence of pre-existing medical conditions among deceased divers and the annual prevalence of recorded disabling agents leading to death.
+      This approach evaluates whether fluctuations in underlying medical vulnerability are associated with specific failure pathways, providing insight into recurring physiological risk structures within scuba diving fatalities.
+    </p>
+
+    <h4>Methodology: Pre-Existing Medical Conditions vs Disabling Agents</h4>
+    <p>
+      To assess whether specific pre-existing medical conditions were associated with specific disabling injuries in scuba diving fatalities, a year-level correlation analysis was conducted using Diver Alert Network fatality data. The medical-condition table and disabling-agent table were aggregated by year.
+      Medical-condition table held data of yearly table counts of diver’s pre-existing medical conditions in the fatality data and Disabling-agent table held data of diver’s disabling agent that lead to their fatality.
+      For each year, the count prevalence of medical conditions and disabling agents were calculated, then aligned both datasets to overlapping years only. The top 12 most frequent medical conditions and top 12 most frequent disabling agents were filtered. The Spearman rank correlation coefficients for every condition and agent pair were computed across years.
+      The Spearman rank correlation was selected because the data are non-normal count series with small sample size by year. The goal was to detect consistent directional co-movement rather than assume linear relationships. Correlations range from (-1,1) where positive values indicate that years with higher prevalence of a condition also tend to have higher prevalence of a disabling agent.
+    </p>
+
+    <h4>Why Spearman Rank Correlation</h4>
+    <p>
+      Spearman rank correlation was chosen because the structure of this dataset is nonlinear and non-normal, even though it is recorded as counts.
+      Unlike simple linear methods, Spearman correlation is designed to detect consistent directional relationships in ranked patterns over time, which is what matters in this fatality data.
+      This method identifies whether years with higher prevalence of a medical condition also tend to be the same years with higher prevalence of a specific disabling agent.
+      This makes the ordering of years from low to high prevalence more meaningful than raw scale alone.
+      Values between -1 and 1 provide interpretable directional evidence of association without overfitting.
+      This is appropriate for exploratory fatality research where the goal is to identify risk patterns rather than claim causal prediction.
+    </p>
+
+    <h4>Findings</h4>
+    <figure class="finding-figure">
+      <img src="figures/preexisting-medical-conditions-spearman-heatmap.png" alt="Heatmap of pre-existing medical conditions versus disabling agents using Spearman rank correlation" />
+      <figcaption>Preexisting Medical Conditions vs Disabling Agents heatmap (Spearman Rank Correlation, seasickness excluded).</figcaption>
+    </figure>
+
+    <h4>Hypertension and Drowning/Asphyxia (ρ = 0.96)</h4>
+    <p>
+      The strongest observed relationship in the dataset is between hypertension and drowning/asphyxia.
+      Years with higher proportions of hypertension among deceased divers are aligned with years in which drowning/asphyxia is the dominant disabling agent.
+      This suggests that cardiovascular impairment may not directly cause death, but instead significantly increases vulnerability to secondary failure pathways in water.
+    </p>
+    <p>
+      <strong>Prevention:</strong> This result supports stricter cardiovascular screening and risk evaluation prior to certification, particularly for divers with known hypertension or poorly controlled blood pressure, as their risk appears most critical during emergency survival scenarios rather than routine diving conditions.
+    </p>
+
+    <h4>Cardiovascular Disease with Seizure (ρ = 0.85) and Cardiac Events (ρ = 0.77)</h4>
+    <p>
+      Pre-existing cardiovascular disease shows strong associations with both seizure and direct cardiac failure mechanisms.
+      The relationship with cardiac events is expected and reinforces known physiological risk.
+      The association with seizure suggests a secondary pathway, potentially involving hypoxic stress and neurological compromise.
+    </p>
+    <p>
+      <strong>Prevention:</strong> These findings emphasize the importance of cardiovascular fitness not only for preventing cardiac arrest, but also for reducing neurologically mediated loss of consciousness underwater, which can rapidly progress to drowning.
+    </p>
+
+    <h4>Pulmonary Conditions with Seizure (ρ = 0.90) and Decompression Sickness (ρ ≈ 0.57)</h4>
+    <p>
+      Pulmonary pre-existing conditions such as asthma and COPD show a strong association with seizure-related disabling events, and a moderate association with decompression sickness.
+      The strong seizure relationship is consistent with arterial gas embolism mechanisms involving airway obstruction or air trapping during ascent and overexpansion injury.
+      The association with decompression sickness further suggests impaired pulmonary function may reduce effective gas exchange, increasing susceptibility to decompression injury.
+    </p>
+    <p>
+      <strong>Prevention:</strong> These findings highlight the need for careful evaluation of airway disease severity, as these limitations may create hidden vulnerability during ascent phases rather than descent or bottom time.
+    </p>
+
+    <h4>Neurological Conditions with Seizure (ρ ≈ 0.62) and Loss of Consciousness (ρ ≈ 0.79)</h4>
+    <p>
+      Pre-existing neurological conditions demonstrate strong associations with seizure and loss of consciousness.
+      This represents the most direct condition-to-outcome mapping in the dataset.
+      This relationship may reflect a reduced neurological threshold for seizure activity under stress conditions, impaired consciousness regulation under pressure changes or gas exposure, and lower cognitive resilience in emergency situations.
+    </p>
+    <p>
+      <strong>Prevention:</strong> These findings reinforce the importance of strictly managing divers with known seizure disorders or neurological instability, as these conditions directly map onto primary disabling events underwater with minimal physiological buffering.
+    </p>
+
+    <h3>Overall Interpretation and Safety Relevance</h3>
+    <p>
+      Across all categories, a consistent pattern emerges: pre-existing medical conditions do not typically act as direct causes of death, but instead increase susceptibility to specific disabling events that lead to drowning or incapacitation.
+      This distinction is critical for diving safety.
+      The data suggests that fatalities often arise through a failure process, from underlying medical vulnerability to an in-water disabling event.
+    </p>
+
+    <h4>Implications for Prevention</h4>
+    <ul>
+      <li>Enhanced medical screening protocols, particularly for cardiovascular and pulmonary conditions.</li>
+      <li>Risk analysis beyond simple “fit/unfit” status, focusing on condition-specific failure pathways.</li>
+      <li>Training emphasis on early recognition of hypoxia, cardiac distress, and neurological impairment.</li>
+      <li>Improved emergency response planning, as many deaths appear to occur through rapid incapacitation rather than prolonged distress.</li>
+    </ul>
+
+    <div class="btn-section">
+      <a href="#top" class="btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top</a>
+      <a href="#network-analysis" class="btn">Continue to Network Analysis</a>
+    </div>
+  </section>
 
   <!-- Network Analysis Section -->
   <section class="section-divider" id="network-analysis">
