@@ -5,32 +5,274 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Works Cited - Scuba Diving Fatalities Research</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #3d4a56; background: #f5f8fc; }
-    nav { position: sticky; top: 0; background: #fdfcfa; border-bottom: 1px solid #e8ecf1; padding: 20px 0; z-index: 100; }
-    .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-    .logo { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #1a2634; text-transform: uppercase; }
-    nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; list-style: none; gap: 24px; }
-    nav a { text-decoration: none; color: #3d4a56; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s ease; }
-    nav a:hover { color: #0891b2; }
-    .hero { padding: 100px 40px; text-align: center; background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%); border-bottom: 1px solid #e8ecf1; }
-    .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; color: #1a2634; line-height: 1.2; }
-    .hero-subtitle { font-size: 16px; color: #5a6b7a; margin-top: 16px; }
-    main { max-width: 900px; margin: 0 auto; padding: 80px 40px; }
-    ul { margin-bottom: 24px; padding-left: 24px; }
-    ul li { font-size: 16px; line-height: 1.9; color: #5a6b7a; margin-bottom: 20px; }
-    main a { color: #0891b2; text-decoration: none; word-break: break-all; }
-    main a:hover { color: #06b6d4; }
-    em { color: #1a2634; }
-    footer { background: #1a2634; color: #b0bcc7; padding: 60px 40px; border-top: 1px solid #e8ecf1; }
-    .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .footer-section h3 { font-size: 14px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
-    .footer-section ul { list-style: none; padding-left: 0; }
-    .footer-section li { margin-bottom: 12px; font-size: 14px; }
-    .footer-section a { color: #b0bcc7; }
-    .footer-section a:hover { color: #0891b2; }
-    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 32px; text-align: center; font-size: 14px; color: #7a8a99; max-width: 1200px; margin: 0 auto; }
-    @media (max-width: 768px) { .hero h1 { font-size: 30px; } nav ul { gap: 14px; justify-content: flex-start; } nav a { font-size: 12px; } .hero { padding: 60px 20px; } .nav-container { padding: 0 20px; align-items: flex-start; } main { padding: 40px 20px; } footer { padding: 40px 20px; } }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f8fc;
+      --panel: #fdfcfa;
+      --panel-soft: #fbfbf7;
+      --line: #e7ebf0;
+      --text: #1a2634;
+      --muted: #5a6b7a;
+      --accent: #0891b2;
+      --footer: #1a2634;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: var(--muted);
+      background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3f4e5d;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .announcement {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 40px 0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 40px 60px;
+    }
+
+    .hero-shell {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #f8fbfe 0%, #fdfcfa 100%);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06);
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      line-height: 1.02;
+    }
+
+    .hero-subtitle {
+      margin: 18px auto 0;
+      max-width: 700px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 40px 60px;
+    }
+
+    .content-shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 30px rgba(26, 38, 52, 0.05);
+      padding: 42px;
+    }
+
+    ul {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    main a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    main a:hover {
+      color: #06b6d4;
+    }
+
+    em {
+      color: var(--text);
+    }
+
+    footer {
+      background: var(--footer);
+      color: #b0bcc7;
+      padding: 60px 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-content {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .footer-section a {
+      color: #b0bcc7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 14px;
+      color: #7a8a99;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      nav ul {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .announcement {
+        padding: 12px 20px 0;
+      }
+
+      .nav-container {
+        padding: 0 20px;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding: 22px 20px 40px;
+      }
+
+      .hero-shell {
+        padding: 24px 20px;
+      }
+
+      main {
+        padding: 0 20px 40px;
+      }
+
+      .content-shell {
+        padding: 30px 22px;
+      }
+
+      footer {
+        padding: 40px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -49,29 +291,28 @@
     </div>
   </nav>
 
+  <div class="announcement">Scuba Diving Fatalities Research</div>
+
   <section class="hero">
-    <h1>Works Cited</h1>
-    <p class="hero-subtitle">Sources and references used throughout the research</p>
+    <div class="hero-shell">
+      <p class="eyebrow">References</p>
+      <h1>Works Cited</h1>
+      <p class="hero-subtitle">Sources and references used throughout the research</p>
+    </div>
   </section>
 
   <main>
+  <div class="content-shell">
 
   <ul>
     <li>
       Divers Alert Network. <em>Annual Diving Report 2023 Edition: Diving Incidents, Injuries, and Fatalities</em>. Divers Alert Network, 2023.
-      <a href="https://dan.org/safety-prevention/diver-safety/diving-incidents/annual-diving-report/">https://dan.org/safety-prevention/diver-safety/diving-incidents/annual-diving-report/</a>
-    </li>
-    <li>
-      Divers Alert Network. <em>Annual Diving Report</em> (archive and prior yearly editions). Divers Alert Network.
-      <a href="https://dan.org/research-reports/research-studies/annual-diving-report/">https://dan.org/research-reports/research-studies/annual-diving-report/</a>
+      <a href="https://apps.dan.org/publication-library/">https://apps.dan.org/publication-library/</a>
     </li>
 
     <li>
       Vann, Richard D., et al. “Decompression Illness.” <em>The Lancet</em>, vol. 377, no. 9760, 2011, pp. 153–164.
       <a href="https://doi.org/10.1016/S0140-6736(10)61085-9">https://doi.org/10.1016/S0140-6736(10)61085-9</a>
-    </li>
-    <li>
-      Brubakk, Alf O., and Tom S. Neuman, editors. <em>Bennett and Elliott’s Physiology and Medicine of Diving</em>, 5th ed., Saunders, 2003.
     </li>
     <li>
       Pollock, Neal W., and Richard D. Vann. “Diving Medical Fitness and Risk Management.” In Divers Alert Network educational and research resources.
@@ -86,6 +327,10 @@
       <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5876297/">https://pmc.ncbi.nlm.nih.gov/articles/PMC5876297/</a>
     </li>
     <li>
+      Yates, Hunter. “Under Pressure – How Underwater Environments Affect SCUBA Divers.” <em>Citations Under Pressure</em>, 31 Jan. 2024.
+      <a href="https://sites.nd.edu/biomechanics-in-the-wild/2024/01/31/under-pressure-how-underwater-environments-affect-scuba-divers/">https://sites.nd.edu/biomechanics-in-the-wild/2024/01/31/under-pressure-how-underwater-environments-affect-scuba-divers/</a>
+    </li>
+    <li>
       OpenAI. <em>ChatGPT</em>, 2026.
       <a href="https://chat.openai.com/">https://chat.openai.com/</a>
     </li>
@@ -94,6 +339,7 @@
       <a href="https://www.anthropic.com/">https://www.anthropic.com/</a>
     </li>
   </ul>
+  </div>
   </main>
 
   <footer>

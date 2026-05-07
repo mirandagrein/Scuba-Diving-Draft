@@ -27,7 +27,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.8;
       color: var(--muted);
-      background: var(--bg);
+      background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%);
     }
 
     nav {
@@ -230,6 +230,38 @@
       color: #2f4352;
     }
 
+    .content-figure {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .content-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .content-figure figcaption {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4f6272;
+    }
+
+    .content-figure a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .content-figure a:hover {
+      color: #06b6d4;
+    }
+
     footer { background: #1a2634; color: #b0bcc7; padding: 60px 40px; border-top: 1px solid #e8ecf1; }
     .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
     .footer-section h3 { font-size: 14px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
@@ -279,6 +311,9 @@
       <p class="eyebrow">Scuba Diving Background</p>
       <h1>Scuba Diving Context for Fatality Analysis</h1>
       <p class="hero-subtitle">This section provides background context on scuba diving as a recreational activity as well as terms used throughout the project.</p>
+      <figure class="content-figure">
+        <img src="bubbles.jpg" alt="Scuba diver underwater with bubbles" />
+      </figure>
     </div>
   </section>
 
@@ -333,7 +368,13 @@
       <p>Pressure-related injuries in diving form because water pressure increases quickly with depth, about one atmosphere every 10 meters. As a diver descends, the surrounding pressure compresses any gas-filled spaces in the body, such as the ears, sinuses, and lungs. If these spaces are not equalized by adding air through normal breathing or pressure equalization techniques, a pressure imbalance develops between the inside and outside of the body.</p>
       <p>During descent, this pressure difference can cause compression injuries like ear barotrauma or sinus squeeze, where tissues are forced inward and can become damaged or filled with fluid. During ascent, the opposite problem occurs. As pressure decreases, gases inside the body expand. If a diver does not exhale properly or ascends too quickly, this expanding gas can overinflate lung tissue or surrounding air spaces, leading to lung overexpansion injuries. In severe cases, air can escape into the chest cavity or bloodstream, causing life-threatening complications.</p>
       <p>Pressure-related injuries happen when the body cannot properly balance internal gas spaces with changing external water pressure during descent or ascent.</p>
-      <div class="image-placeholder">Image Placeholder: Pressure Change Graphic (Descent vs Ascent)</div>
+      <figure class="content-figure">
+        <img src="Pressure.png" alt="Diagram showing pressure effects on scuba divers during descent and ascent" />
+        <figcaption>
+          Pressure-related diving effects graphic. Source: Hunter Yates, “Under Pressure – How Underwater Environments Affect SCUBA Divers” (2024).
+          <a href="https://sites.nd.edu/biomechanics-in-the-wild/2024/01/31/under-pressure-how-underwater-environments-affect-scuba-divers/">https://sites.nd.edu/biomechanics-in-the-wild/2024/01/31/under-pressure-how-underwater-environments-affect-scuba-divers/</a>
+        </figcaption>
+      </figure>
     </section>
 
     <section class="content-section">

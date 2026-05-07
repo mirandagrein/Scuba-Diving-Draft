@@ -5,31 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Methodology - Scuba Diving Fatalities Research</title>
   <style>
-    * { 
-      box-sizing: border-box; 
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    :root {
+      --bg: #f5f8fc;
+      --panel: #fdfcfa;
+      --panel-soft: #fbfbf7;
+      --line: #e7ebf0;
+      --text: #1a2634;
+      --muted: #5a6b7a;
+      --accent: #0891b2;
+      --footer: #1a2634;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.8;
-      color: #3d4a56;
-      background: #f5f8fc;
+      color: var(--muted);
+      background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%);
     }
 
-    /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      background: #fdfcfa;
-      border-bottom: 1px solid #e8ecf1;
-      padding: 20px 0;
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
       z-index: 100;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 40px;
       display: flex;
@@ -42,8 +57,9 @@
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 2px;
-      color: #1a2634;
+      color: var(--text);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     nav ul {
@@ -51,55 +67,89 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       list-style: none;
-      gap: 24px;
+      gap: 28px;
     }
 
     nav a {
       text-decoration: none;
-      color: #3d4a56;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      color: #3f4e5d;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #0891b2;
+      color: var(--accent);
     }
 
-    /* Hero Section */
+    .announcement {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 40px 0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
     .hero {
-      padding: 100px 40px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 40px 60px;
+    }
+
+    .hero-shell {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #f8fbfe 0%, #fdfcfa 100%);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06);
       text-align: center;
-      background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%);
-      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 700;
-      letter-spacing: -1px;
-      color: #1a2634;
-      line-height: 1.2;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      line-height: 1.02;
     }
 
     .hero-subtitle {
-      font-size: 16px;
-      color: #5a6b7a;
-      margin-top: 16px;
+      margin: 18px auto 0;
+      max-width: 700px;
+      font-size: 18px;
+      color: var(--muted);
     }
 
-    /* Main Content */
     main {
-      max-width: 900px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 80px 40px;
+      padding: 0 40px 60px;
+    }
+
+    .content-shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 30px rgba(26, 38, 52, 0.05);
+      padding: 42px;
     }
 
     h2 {
       font-size: 28px;
       font-weight: 700;
-      color: #1a2634;
+      color: var(--text);
       margin: 48px 0 24px 0;
       letter-spacing: -0.5px;
     }
@@ -108,28 +158,112 @@
       margin-top: 0;
     }
 
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 36px 0 16px 0;
+      letter-spacing: -0.3px;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 16px 0;
+    }
+
     p {
       font-size: 16px;
       line-height: 1.9;
-      color: #5a6b7a;
+      color: var(--muted);
       margin-bottom: 24px;
     }
 
-    br {
-      display: block;
+    ul {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--muted);
       margin-bottom: 12px;
     }
 
-    /* Footer */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: none;
+      background: linear-gradient(180deg, #7ccde2 0%, #52bdda 100%);
+      color: #0a2f3c;
+      box-shadow: 0 10px 22px rgba(8, 145, 178, 0.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-section {
+      margin: 22px 0 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .hero-shell .btn-section {
+      margin: 18px 0 0;
+    }
+
+    .section-divider {
+      margin: 60px 0 40px 0;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .finding-figure {
+      margin: 20px 0 28px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .finding-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .finding-figure figcaption {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4f6272;
+    }
+
     footer {
-      background: #1a2634;
+      background: var(--footer);
       color: #b0bcc7;
       padding: 60px 40px;
-      border-top: 1px solid #e8ecf1;
+      border-top: 1px solid var(--line);
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -148,6 +282,7 @@
 
     .footer-section ul {
       list-style: none;
+      padding-left: 0;
     }
 
     .footer-section li {
@@ -162,7 +297,7 @@
     }
 
     .footer-section a:hover {
-      color: #0891b2;
+      color: var(--accent);
     }
 
     .footer-bottom {
@@ -171,36 +306,45 @@
       text-align: center;
       font-size: 14px;
       color: #7a8a99;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 30px;
       }
 
       nav ul {
-        gap: 14px;
-        justify-content: flex-start;
+        gap: 20px;
       }
 
       nav a {
         font-size: 12px;
       }
 
-      .hero {
-        padding: 60px 20px;
+      .announcement {
+        padding: 12px 20px 0;
       }
 
       .nav-container {
         padding: 0 20px;
-        align-items: flex-start;
+      }
+
+      .hero {
+        padding: 22px 20px 40px;
+      }
+
+      .hero-shell {
+        padding: 24px 20px;
       }
 
       main {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
+      }
+
+      .content-shell {
+        padding: 30px 22px;
       }
 
       footer {
@@ -210,11 +354,14 @@
       h2 {
         font-size: 22px;
       }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
-<body>
-  <!-- Navigation -->
+<body id="top">
   <nav>
     <div class="nav-container">
       <div class="logo">Research</div>
@@ -230,52 +377,181 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <div class="announcement">Scuba Diving Fatalities Research</div>
+
   <section class="hero">
-    <h1>Research Methodology</h1>
-    <p class="hero-subtitle">The research design, data collection process, and analytical techniques</p>
+    <div class="hero-shell">
+      <p class="eyebrow">Methodology</p>
+      <h1>Research Methodology</h1>
+      <p class="hero-subtitle">Research design and process of analysis through Python data analysis</p>
+      <div class="btn-section">
+        <a href="#data-source-extraction" class="btn">Data Source and Extraction</a>
+        <a href="#geographic-analysis-methodology" class="btn">Geographic Analysis Methodology</a>
+        <a href="#medical-methodology" class="btn">Pre-Existing Medical Methodology</a>
+        <a href="#network-methodology" class="btn">Network Analysis Methodology</a>
+        <a href="#ai-tool-usage" class="btn">AI Tool Usage</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Main Content -->
   <main>
-    <h2>Research Design</h2>
-    <p>
-      This project uses a primarily quantitative research design to examine how scuba-fatality patterns change over time, geography, depth, and incident characteristics. The analysis combines descriptive statistics (totals, shares, rankings), time comparisons, and proportion-based comparisons across categories.
-    </p>
+    <div class="content-shell">
+      <section id="data-source-extraction">
+        <h2>Data Source and Extraction</h2>
 
-    <h2>Data Collection</h2>
-    <p>
-      The primary data source is the Divers Alert Network (DAN) annual diving reports. These reports provide annual fatality summaries and associated variables compiled in report tables. Variables extracted for this project include age, sex, diver level, country and region, depth at fatality, yearly fatality totals, breathing apparatus, buddy status, gas type, trigger of fatality, phase of dive, mechanism of injury, disabling injury, stated cause of death, month, medical examination information, medical history, BMI, certification level, years since initial certification, diving activity, visibility, sea conditions, current, equipment, and related fields.
-    </p>
-    <p>
-      Data was collected by downloading available DAN reports for 2010–2020 and manually extracting relevant tabular values into Excel files. Variables were separated into topic-specific files with each file organized by category and year.
-    </p>
+        <h3>Data Source</h3>
+        <p>
+          The primary data source is the Divers Alert Network (DAN) annual diving reports. Diver’s Alert Network is the world's leading credible dive safety association. These reports provide annual fatality summaries and associated variables compiled in report tables. Variables extracted for this project include age, sex, diver certification level, country and region, depth at fatality, yearly fatality totals, breathing apparatus, buddy status, gas type, trigger of fatality, phase of dive, mechanism of injury, disabling injury, stated cause of death, month, medical examination information, medical history, BMI, certification level, years since initial certification, diving activity, visibility, sea conditions, current, equipment, and other related fields.
+        </p>
 
-    <h2>Data Management and Preparation</h2>
-    <p>
-      The data management workflow was completed in Python using Jupyter Notebook. Steps included: 1. loading each Excel file into pandas DataFrames 2. normalizing inconsistent year labels 3. reshaping wide tables into long format 4. converting values to numeric format and handling blanks/non-numeric entries 5. creating proportion fields by dividing category counts by yearly totals.
-    </p>
-    <p>
-      For region-country data, region rows and country rows were separated to support both regional and country-level visualizations. For category fields such as trigger and mechanism, rankings were computed and then limited to top groups.
-    </p>
+        <h3>Data Extraction</h3>
+        <p>
+          Data Extraction was the most time-consuming aspect of the project. The DAN annual diving reports for each year were downloaded as a pdf. Specific data was displayed in tables, while others were displayed in bar charts. The data had to be copied and pasted or manually extracted by typing in Excel. Excel files were then sorted by variables and type of data and combined with other yearly values. Certain tables such as cause of death, disabling injury, and similar had to be grouped together by similar mechanisms. The data was then sorted manually by adding together multiple tables. There were over 200 tables of data from numerous years that had to be combined. Once the tables were completed, they were exported into their own excel file and read in through python.
+        </p>
 
-    <h2>Methods of Analysis</h2>
-    <p>
-      Analysis and visualization were performed with pandas, NumPy, Matplotlib, and Seaborn in Jupyter. The following techniques were used:
-    </p>
-    <p>
-      Descriptive totals and trends: yearly fatality totals by region/country/category and line charts over time.<br />
-      Proportion analysis: category share of total fatalities by year to compare relative importance across years.<br />
-      Concentration analysis: top ranking and comparisons to identify dominant categories.<br />
-      Comparative category analysis: trigger and mechanism top-5 categories by yearly proportion and overall proportion.<br />
-      Depth profile analysis: most common maximum-depth categories overall and by time period.
-    </p>
-    <p>
-      These methods are quantitative as the research question needs numeric-based evidence to answer. A limited qualitative component is present in interpretation, but the core evidence is numeric and chart-based.
-    </p>
+        <figure class="finding-figure">
+          <img src="DANss.png" alt="Divers Alert Network report data source image" />
+          <figcaption>Divers Alert Network (DAN) source material used for data collection and extraction.</figcaption>
+        </figure>
+        <p style="font-size: 14px; margin-top: -10px;">Citation: Divers Alert Network (DAN).</p>
+      </section>
+
+      <section class="section-divider" id="geographic-analysis-methodology">
+        <h2>Geographic Analysis Methodology</h2>
+        <p>
+          To visualize the geographic distribution of scuba diving fatalities, the country-by-year data were first reshaped from wide format into long format so that each record represented a specific country and year. The fatalities were then aggregated by country and by year to produce totals for both the full period and individual years. Country names were matched to country codes which allowed the data to be displayed on a Plotly choropleth map. An animated year-by-year map with a slider to show changes over time was created.
+        </p>
+      </section>
+
+      <section class="section-divider" id="medical-methodology">
+        <h2>Pre-Existing Medical Conditions Methodology</h2>
+
+        <p>
+          To assess whether specific pre-existing medical conditions were associated with specific disabling injuries in scuba diving fatalities, a year-level correlation analysis was conducted using Diver Alert Network fatality data. The medical-condition table and disabling-agent table were aggregated by year.
+          Medical-condition table held data of yearly table counts of diver’s pre-existing medical conditions in the fatality data and Disabling-agent table held data of diver’s disabling agent that lead to their fatality.
+          For each year, the count prevalence of medical conditions and disabling agents were calculated, then aligned both datasets to overlapping years only. The top 12 most frequent medical conditions and top 12 most frequent disabling agents were filtered. The Spearman rank correlation coefficients for every condition and agent pair were computed across years.
+          The Spearman rank correlation was selected because the data are non-normal count series with small sample size by year. The goal was to detect consistent directional co-movement rather than assume linear relationships. Correlations range from (-1,1) where positive values indicate that years with higher prevalence of a condition also tend to have higher prevalence of a disabling agent.
+        </p>
+
+        <h3>Why Spearman Rank Correlation</h3>
+        <p>
+          Spearman rank correlation was chosen because the structure of this dataset is nonlinear and non-normal, even though it is recorded as counts.
+          Unlike simple linear methods, Spearman correlation is designed to detect consistent directional relationships in ranked patterns over time, which is what matters in this fatality data.
+          This method identifies whether years with higher prevalence of a medical condition also tend to be the same years with higher prevalence of a specific disabling agent.
+          This makes the ordering of years from low to high prevalence more meaningful than raw scale alone.
+          Values between -1 and 1 provide interpretable directional evidence of association without overfitting.
+          This is appropriate for exploratory fatality research where the goal is to identify risk patterns rather than claim causal prediction.
+        </p>
+      </section>
+
+      <section class="section-divider" id="network-methodology">
+        <h2>Scuba Diving Fatalities Network Analysis Methodology</h2>
+
+        <h3>The Model</h3>
+        <p>
+          The model uses data from the 2010–2020 Diver Alert Network annual dive reports. Categories are treated as a conceptual weighted pathway network, where fatalities move through four stages: Trigger, Mechanisms, Disabling Factor, and Cause of Death. Within each yearly dataset, fatalities were classified according to the specific category identified at each stage, along with the corresponding number of cases. These counts were then used as edge weights to represent the relative frequency of pathways linking one stage to the next.
+        </p>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Trigger</h4>
+        <p>Trigger is the initiating event or condition that starts the accident sequence and disrupts the safe dive. Triggers were separated into five categories:</p>
+        <ul>
+          <li><strong>Medical:</strong> Health Problem, Cardiac Event, Natural Disease, Heart Problems</li>
+          <li><strong>Human Behavior:</strong> Panic, Inexperience, Drug, Alcohol, Exertion</li>
+          <li><strong>Equipment:</strong> Breathing Issues Due to Equipment, Gas Toxicity, Malfunctioning Parts or Incorrect Usage</li>
+          <li><strong>Environmental:</strong> Entrapment, Entanglement</li>
+          <li><strong>Ascent / Buoyancy:</strong> Buoyancy Problem, Rapid Ascent</li>
+        </ul>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Mechanism of Injury</h4>
+        <p>Mechanism is the process through which the trigger causes harm. It explains how the initial problem develops into a dangerous emergency. Mechanisms were separated into five categories:</p>
+        <ul>
+          <li><strong>Gas/Breathing:</strong> Out of Air, Breathing Issues, Gas Toxicity, Suffocation, Insufficient Breathing Gas, Immersion Pulmonary Edema, Asphyxia</li>
+          <li><strong>Human Behavior:</strong> Panic, Exhaustion, Intoxication, Diver Error</li>
+          <li><strong>Pressure/Ascent:</strong> Deep Dive Ascent, Breath-Hold Ascent, Decompression Sickness, Buoyancy, Rapid Ascent</li>
+          <li><strong>Medical:</strong> Hypertension/Cardiovascular Disease, Heart Problem, Stroke, Seizure, Natural Disease</li>
+          <li><strong>Environmental / Equipment:</strong> Striking an Object, Entanglement, Equipment Malfunction, Marine Life Attack</li>
+        </ul>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Disabling Injury</h4>
+        <p>Disabling Injury is responsible for incapacitation. When a death occurs after the diver leaves the water, the Cause of Death and Disabling Injury are usually the same. Disabling Injuries were sorted into four categories:</p>
+        <ul>
+          <li><strong>Drowning / Respiratory:</strong> Respiratory Distress, Immersion Pulmonary Edema, Drowning, Asphyxia</li>
+          <li><strong>Cardiovascular / Neurological:</strong> Cardiac, Stroke, Loss of Consciousness, Seizure, General Health Issue</li>
+          <li><strong>Pressure Injury:</strong> Arterial Gas Embolism, Decompression Sickness, Pressure-Related</li>
+          <li><strong>Environmental:</strong> Blunt Head Trauma, Striking Object, Bite from Marine Life, Carbon Monoxide Poisoning</li>
+        </ul>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Cause of Death</h4>
+        <p>Cause of death is the final medical reason the diver dies and is extracted from the autopsy report. Categories were sorted into five groups:</p>
+        <ul>
+          <li><strong>Drowning:</strong> Drowning, Respiratory Issue, Asphyxia, Immersion Pulmonary Edema</li>
+          <li><strong>Cardiac / Heart:</strong> Cardiac Issue, Heart Problem, Cardiovascular Disease</li>
+          <li><strong>Pressure Injury:</strong> Decompression Sickness, Pressure-Related, Arterial Gas Embolism</li>
+          <li><strong>Trauma / Toxic:</strong> Carbon Monoxide Poisoning, Head/Brain Injury, Blunt Force Impact, Intoxication</li>
+          <li><strong>Environmental:</strong> Marine Life Bite, Bite Venom, Entanglement</li>
+        </ul>
+
+        <p style="margin-top: 24px;">
+          Categories within each stage were created because raw categories are often too granular. Some factors such as arterial gas embolism and decompression sickness are results of the same ultimate factor (pressure changes), so combining them reduces noise, makes pathways clearer, increases statistical reliability, and aligns with clinical/physiological reality.
+        </p>
+
+        <h3>Python Methodology</h3>
+        <p>
+          Proportion tables were created for each stage. For each year, each category's percentage of that stage's total is calculated. This normalizes across years so that changes in total incident numbers don't artificially inflate pathways. Some years have more total counts, so proportions accurately indicate the more common categories.
+        </p>
+        <p>
+          Edges are built by multiplying proportions across stages. This represents co-occurrence probability. For example, if equipment failures happen 20% of the time in triggers, and gas problems happen 30% of the time in mechanisms, their combined pathway weight reflects the probability that an equipment failure leads through to a gas mechanism.
+        </p>
+        <p>
+          The proportions are then scaled by year totals. This converts proportions back into meaningful magnitude. For example, a 6% pathway in a year with 50 total incidents has different weight than if the 6% was in a year with 500 incidents.
+        </p>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Converting to NetworkX DiGraph</h4>
+        <p>
+          A digraph is a directed graph in which edges have direction. This represents the flow from trigger to mechanism to disabling agent to cause of death as causal sequences flow in one direction. Each edge carries a weight which is the calculated pathway strength.
+        </p>
+
+        <h4 style="font-size: 16px; font-weight: 700; margin: 20px 0 12px 0;">Metrics</h4>
+        <p>
+          Strengths such as In-Strength, Out-Strength, and Total Strength were calculated:
+        </p>
+        <ul>
+          <li><strong>In-Strength:</strong> How much "flow" comes into this node (how important is it as a destination?)</li>
+          <li><strong>Out-Strength:</strong> How much "flow" goes out of this node (how important is it as an origin?)</li>
+          <li><strong>Total Strength:</strong> Sum of In and Out strength; raw "traffic" through the node</li>
+        </ul>
+        <p>
+          For example, the drowning cause of death has 201.1 in-strength and 0 out-strength, representing that it's terminal with no other route possible. Cardiovascular/Neuro Disabling Agent has 117.98 in-strength and 156.51 out-strength, indicating it is a hub. Clinical interpretation: Strength tells you the magnitude of the problem. Drowning's high in-strength means lots of pathways lead there. Cardiovascular's high out-strength means many pathways diverge, some to drowning and some to other causes.
+        </p>
+        <p>
+          <strong>PageRank</strong> was also computed. PageRank is a ranking of important nodes determined by whether they receive edges from important nodes, weighted by edge strength. The algorithm respects edge weights, so a strong pathway contributes more to importance than a weak one.
+        </p>
+        <ul style="margin: 16px 0;">
+          <li>Drowning (0.173) is the most central outcome</li>
+          <li>Cardiovascular/Neuro (0.109) is the most central disabling factor</li>
+          <li>Equipment Trigger (0.023) is less central despite high volume</li>
+          <li>Drowning is central because everything flows there. Equipment is high-volume but not "central" because it's on the periphery (just triggers).</li>
+        </ul>
+        <p>
+          <strong>Betweenness Centrality</strong> was computed to find the shortest path for every pair of nodes. This metric identifies which nodes lie in the middle of the most important routes when events move from one category to another. High betweenness allows us to find where the highest leverage is for intervention.
+        </p>
+        <p>
+          Visualizations were then created representing node sizes and edge width. Larger nodes represent nodes with more traffic through them. Edges are proportional to pathway weight and thicker edges represent stronger pathways.
+        </p>
+
+        <h3 id="ai-tool-usage">AI Tool Usage</h3>
+        <p>
+          AI tools were used as implementation support during this project. The  development of the research design, choice of methods of analysis, and interpretation of the findings were developed independently by me. The main area where AI support was used was implementation, especially for using the NetworkX DiGraph package and structuring the code as the package was new to me. AI also helped speed up repetitive coding tasks such as restructuring similar tables, debugging, formatting repeated plotting code, and formatting visualizations to be readable. I also used AI for editing sentence structure to help convey ideas better and designing the website to be visually appealing. What worked the best with AI was implementing buttons and navigation in the website which sped up my workflow so I could focus on coding, analysis, and interpretation of results. What did not work as well was the limitations of AI help in interpretation. While AI formatted visualizations better, sometimes AI would visualize the interpretations to be misleading. I had to manually make sure each visualization accurately showcased the findings and get rid of any bias. This process showed that AI can increase efficiency, but the consequence is that researcher oversight is still critical. Without user judgment, cleaning decisions, and interpretation done by the researcher, the analysis can become fast but unreliable.
+        </p>
+
+        <div class="btn-section">
+          <a href="#top" class="btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top</a>
+          <a href="findings.html" class="btn">Go to Findings</a>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-section">
