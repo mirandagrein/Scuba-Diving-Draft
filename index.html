@@ -372,6 +372,21 @@
       gap: 20px;
     }
 
+    .section-photo {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+    }
+
+    .section-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
     .feature-card {
       display: block;
       text-decoration: none;
@@ -877,127 +892,43 @@
         <a href="literature.html" class="feature-card">
           <div class="label">Foundation</div>
           <h3>Literature Review</h3>
-          <p>Identify what is already known, what remains uncertain, and which gaps this project is designed to address.</p>
+          <p>Provides general background and context from published research.</p>
         </a>
 
         <a href="methodology.html" class="feature-card">
           <div class="label">Methods</div>
           <h3>Methodology</h3>
-          <p>Review data inputs, cleaning rules, and analysis steps so your findings can be checked and reproduced.</p>
+          <p>Explains the overall methods used for data collection and analysis.</p>
         </a>
 
         <a href="findings.html" class="feature-card">
           <div class="label">Analysis</div>
           <h3>Findings</h3>
-          <p>Compare regional, depth, and pathway patterns to identify where risk is concentrated and where interventions should focus.</p>
+          <p>Summarizes the main results and patterns identified in the project.</p>
         </a>
 
         <a href="conclusion.html" class="feature-card">
           <div class="label">Wrap-up</div>
           <h3>Conclusion</h3>
-          <p>Use the summary to prioritize next steps, document limitations, and define follow-up analyses.</p>
+          <p>Presents the overall conclusions and final interpretation of results.</p>
         </a>
 
         <a href="scubadiving.html" class="feature-card">
           <div class="label">Orientation</div>
           <h3>Understand Scuba Diving</h3>
-          <p>Check key diving terms so pathway, mechanism, and risk interpretations stay technically accurate.</p>
+          <p>Introduces key scuba diving concepts and terminology used in the study.</p>
         </a>
 
         <a href="works-cited.html" class="feature-card">
           <div class="label">References</div>
           <h3>Works Cited</h3>
-          <p>Validate claims against source reports, medical references, and supporting evidence.</p>
+          <p>Lists the sources and references used throughout the project.</p>
         </a>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <div class="section-title">Action focus</div>
-          <h2>Use this project to guide decisions</h2>
-        </div>
-        <p>
-          Move from pattern detection to action: identify repeat pathways, connect them to prevention priorities, and document practical recommendations.
-        </p>
-      </div>
-
-      <div class="story">
-        <article class="story-card">
-          <div class="story-copy">
-            <div class="eyebrow">What the project does</div>
-            <h3>Measures patterns, not just totals</h3>
-            <p>
-              Track where fatalities cluster, how depth changes over time, and which trigger-to-cause pathways recur most often.
-            </p>
-            <p>
-              Convert those patterns into targeted actions: improve training focus, refine regional prevention planning, and prioritize high-risk pathways.
-            </p>
-            <a class="btn btn-secondary" href="conclusion.html">Read the conclusion</a>
-          </div>
-        </article>
-
-        <div class="story-media" aria-label="Image placeholder for a future uploaded image"></div>
-      </div>
-    </section>
-
-    <section class="section" id="findings">
-      <div class="section-head">
-        <div>
-          <div class="section-title">Season-style highlights</div>
-          <h2>Key moments in the project timeline</h2>
-        </div>
-        <p>
-          Use this timeline as a workflow checklist from question framing through analysis and interpretation.
-        </p>
-      </div>
-
-      <div class="timeline-grid">
-        <article class="timeline-card">
-          <div class="when">Stage one</div>
-          <h3>Literature and framing</h3>
-          <p>Set the research context, identified the major variables, and defined the broader safety question.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="when">Stage two</div>
-          <h3>Data cleaning and structure</h3>
-          <p>Prepared the DAN data, standardized labels, and organized the files for analysis in Python.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="when">Stage three</div>
-          <h3>Findings and interpretation</h3>
-          <p>Focused on the strongest patterns: geography, depth, concentration, and the limits of unknown values.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="notes">
-      <div class="section-head">
-        <div>
-          <div class="section-title">Key takeaways</div>
-          <h2>Insights that drive next steps</h2>
-        </div>
-        <p>
-          Treat these as decision prompts for prevention priorities and data-quality improvements.
-        </p>
-      </div>
-
-      <div class="quotes-grid">
-        <div class="quote-card">
-          <div class="source">Main insight</div>
-          <blockquote>Fatalities are concentrated rather than evenly spread across geography, depth, and incident categories.</blockquote>
-          <p>Action: prioritize interventions where concentration is highest instead of spreading resources evenly.</p>
-        </div>
-
-        <div class="quote-card">
-          <div class="source">Key limitation</div>
-          <blockquote>Unknown values remain one of the most important obstacles to interpretation.</blockquote>
-          <p>Action: improve data collection standards so future analyses can test depth and certification effects more reliably.</p>
-        </div>
-      </div>
+      <figure class="section-photo">
+        <img src="shark.jpg" alt="Underwater shark image" />
+      </figure>
     </section>
 
     <section class="section" id="map">
@@ -1006,9 +937,6 @@
           <div class="section-title">Interactive map</div>
           <h2>Year-by-year country deaths on a movable map</h2>
         </div>
-        <p>
-          This embeds the Plotly map exported from your notebook. It stays interactive, and the panel itself can be dragged on desktop.
-        </p>
       </div>
 
       <div class="map-stage" id="map-stage">
