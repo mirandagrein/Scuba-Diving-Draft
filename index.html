@@ -340,6 +340,101 @@
       max-width: 22ch;
     }
 
+    .dive-log {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(26, 38, 52, 0.03);
+    }
+
+    .dive-log::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background: linear-gradient(180deg, rgba(223, 244, 251, 0.45) 0%, rgba(223, 244, 251, 0) 100%);
+      pointer-events: none;
+    }
+
+    .dive-log-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dive-log-title {
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .dive-log-date {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .dive-log-lines {
+      display: grid;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dive-log-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+      border-bottom: 1px dashed rgba(26, 38, 52, 0.12);
+      padding-bottom: 6px;
+    }
+
+    .dive-log-row strong {
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .dive-log-stamp {
+      position: absolute;
+      right: 14px;
+      bottom: 10px;
+      width: 108px;
+      height: 108px;
+      border: 2px solid rgba(8, 145, 178, 0.7);
+      border-radius: 50%;
+      color: rgba(8, 145, 178, 0.78);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      transform: rotate(-14deg);
+      background: rgba(223, 244, 251, 0.2);
+      font-size: 11px;
+      line-height: 1.35;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      z-index: 1;
+      pointer-events: none;
+    }
+
     .section {
       padding: 86px 0 0;
     }
@@ -822,8 +917,6 @@
     </div>
   </nav>
 
-  <div class="announcement">Scuba diving fatalities project · 2010–2020 · DAN reports</div>
-
   <header class="hero" id="home">
     <div class="hero-shell">
       <div>
@@ -963,7 +1056,7 @@
         <div class="footer-section">
           <h3>About</h3>
           <p>A research project that turns scuba fatality data into concrete risk insights and prevention priorities.</p>
-        </div>
+
         <div class="footer-section">
           <h3>Explore</h3>
           <ul>
