@@ -5,31 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Literature Review - Scuba Diving Fatalities Research</title>
   <style>
-    * { 
-      box-sizing: border-box; 
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    :root {
+      --bg: #f5f8fc;
+      --panel: #fdfcfa;
+      --panel-soft: #fbfbf7;
+      --line: #e7ebf0;
+      --text: #1a2634;
+      --muted: #5a6b7a;
+      --accent: #0891b2;
+      --footer: #1a2634;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.8;
-      color: #3d4a56;
+      color: var(--muted);
       background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%);
     }
 
-    /* Navigation */
+    a {
+      color: inherit;
+    }
+
     nav {
       position: sticky;
       top: 0;
-      background: #fdfcfa;
-      border-bottom: 1px solid #e8ecf1;
-      padding: 20px 0;
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
       z-index: 100;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 40px;
       display: flex;
@@ -42,8 +61,9 @@
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 2px;
-      color: #1a2634;
+      color: var(--text);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     nav ul {
@@ -51,55 +71,89 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       list-style: none;
-      gap: 24px;
+      gap: 28px;
     }
 
     nav a {
       text-decoration: none;
-      color: #3d4a56;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+      color: #3f4e5d;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #0891b2;
+      color: var(--accent);
     }
 
-    /* Hero Section */
+    .announcement {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 40px 0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
     .hero {
-      padding: 100px 40px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 40px 60px;
+    }
+
+    .hero-shell {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #f8fbfe 0%, #fdfcfa 100%);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06);
       text-align: center;
-      background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%);
-      border-bottom: 1px solid #e8ecf1;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 700;
-      letter-spacing: -1px;
-      color: #1a2634;
-      line-height: 1.2;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      line-height: 1.02;
     }
 
     .hero-subtitle {
-      font-size: 16px;
-      color: #5a6b7a;
-      margin-top: 16px;
+      margin: 18px auto 0;
+      max-width: 700px;
+      font-size: 18px;
+      color: var(--muted);
     }
 
-    /* Main Content */
     main {
-      max-width: 900px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 80px 40px;
+      padding: 0 40px 60px;
+    }
+
+    .content-shell {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 30px rgba(26, 38, 52, 0.05);
+      padding: 42px;
     }
 
     h2 {
       font-size: 28px;
       font-weight: 700;
-      color: #1a2634;
+      color: var(--text);
       margin: 48px 0 24px 0;
       letter-spacing: -0.5px;
     }
@@ -111,20 +165,19 @@
     p {
       font-size: 16px;
       line-height: 1.9;
-      color: #5a6b7a;
+      color: var(--muted);
       margin-bottom: 24px;
     }
 
-    /* Footer */
     footer {
-      background: #1a2634;
+      background: var(--footer);
       color: #b0bcc7;
       padding: 60px 40px;
-      border-top: 1px solid #e8ecf1;
+      border-top: 1px solid var(--line);
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -143,6 +196,7 @@
 
     .footer-section ul {
       list-style: none;
+      padding-left: 0;
     }
 
     .footer-section li {
@@ -170,23 +224,29 @@
       margin: 0 auto;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 30px;
       }
 
       nav ul {
-        gap: 14px;
-        justify-content: flex-start;
+        gap: 20px;
       }
 
       nav a {
         font-size: 12px;
       }
 
+      .announcement {
+        padding: 12px 20px 0;
+      }
+
       .hero {
-        padding: 60px 20px;
+        padding: 22px 20px 40px;
+      }
+
+      .hero-shell {
+        padding: 24px 20px;
       }
 
       .nav-container {
@@ -195,7 +255,11 @@
       }
 
       main {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
+      }
+
+      .content-shell {
+        padding: 30px 22px;
       }
 
       footer {
@@ -225,34 +289,43 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <div class="announcement">Scuba Diving Fatalities Research</div>
+
   <section class="hero">
-    <h1>Literature Review</h1>
-    <p class="hero-subtitle">Examining existing research on diving safety and the gaps this project addresses</p>
+    <div class="hero-shell">
+      <p class="eyebrow">Literature</p>
+      <h1>Literature Review</h1>
+      <p class="hero-subtitle">Examining existing research on diving safety and the gaps this project addresses</p>
+    </div>
   </section>
 
-  <!-- Main Content -->
   <main>
+  <div class="content-shell">
 
   <p>
-    Research on scuba diving fatalities, especially in reports published by the Divers Alert Network (DAN), provides a strong descriptive foundation for understanding fatal incidents. Across annual DAN reports, fatalities are consistently described as multifactorial involving diver health, environmental stressors, and situational aspects. Variables such as age, BMI, pre-existing medical conditions, dive depth, and environmental conditions are frequently documented. For example, DAN data indicates that a large share of fatalities involve older divers and individuals classified as overweight or obese, suggesting that cardiovascular strain and overall fitness are important contributing factors. Depth is also repeatedly identified as a key variable, since deeper dives increase physiological stress, air-consumption rates, and ascents, all of which elevate risk.
+    Research on scuba diving fatalities, especially in reports published by the Divers Alert Network (DAN), provides a strong foundation for understanding fatal incidents. Across annual DAN reports, fatalities are consistently described as multifactorial involving diver health, environmental stressors, and situational aspects. Variables such as age, BMI, pre-existing medical conditions, dive depth, and environmental conditions are frequently documented.
+  </p>
+
+  <h2>What We Know and What We Do Not Know</h2>
+  <p>
+    Existing sources cited in this project provide strong context from different angles. DAN annual reports provide incident reports, Lippmann and Caruso provide forensic and context for diver cause of death, and Lucrezi et al. emphasize operational safety priorities in recreational settings. These works support the conclusion that fatalities are multi-causal and pathway-based rather than caused by one variable alone.
+  </p>
+  <p>
+    What remains less developed in the literature is pathway development across stages of an incident. Much of the evidence is still reported as category percentages, for example how often one outcome appears, but fewer studies model how triggers transition into mechanisms, then disabling injuries, and then final causes of death over time. That is the key aspect this project addresses and investigates.
   </p>
 
   <p>
-    While these variables are well documented, most existing research relies on descriptive statistics such as counts and proportions by category. As a result, the literature clearly identifies which factors are present in fatal incidents, but offers limited insight into how these factors interact or how risk changes over time. For instance, although BMI and depth are each associated with fatalities, few studies examine whether higher BMI specifically amplifies risk during deeper or more physically demanding dives. Likewise, while DAN reports span multiple years, limited work has analyzed trends in whether fatalities involving older divers or particular dive conditions are increasing over time.
+    While these variables are well documented, most existing research still relies on descriptive statistics such as counts and proportions by category. In practice, many summaries stop at statements like “most deaths were drowning” or “a certain percentage involved a given factor,” which is useful but limited. This approach identifies what appears frequently, but it does not explain how factors connect across a fatal sequence or how those relationships shift across years. Likewise, while DAN reports span multiple years, limited work has quantified whether specific pathway patterns are becoming more or less common over time.
   </p>
 
   <p>
-    The structure of DAN datasets allows for more advanced statistical investigation of these gaps. Using incident-level data across multiple years, it is possible to examine trends in key variables, including changes in average diver age, BMI distribution, or depth of fatal dives. In addition, multivariate statistical methods, including logistic regression and modeling, can test whether combinations of variables are more strongly associated with fatalities than individual factors alone. This shifts analysis toward a more complete understanding of risk.
+    The structure of DAN datasets allows for more advanced statistical investigation of these gaps. Using incident-level data across multiple years, it is possible to examine trends in key variables, including changes in variables. Multivariate statistical methods can test whether combinations of variables are more strongly associated with fatalities than individual factors alone. This shifts analysis toward a more complete understanding of risk. This project moves beyond isolated percentages and evaluates which combinations of conditions repeatedly converge into fatal outcomes.
   </p>
 
   <p>
-    Another limitation in the literature is the lack of comparison between fatal and non-fatal incidents, which restricts the ability to identify when risk escalates. DAN reports often describe chains of events leading to death, but these sequences are not typically quantified or modeled statistically. With data structuring, it becomes possible to analyze patterns in contributing factors and investigate which combinations of initial conditions are most likely to result in fatal outcomes.
+    Overall, existing research establishes that scuba diving fatalities are complex events influenced by multiple variables, but it does not fully leverage the potential of available datasets for analysis. This project addresses those gaps by combining descriptive trend work with pathway-based network analysis of DAN data to investigate these relationships. The aim is to improve understanding of how risk develops and changes over time and to identify relevant prevention techniques.
   </p>
-
-  <p>
-    Overall, existing research establishes that scuba diving fatalities are rare, complex events influenced by multiple variables, but it does not fully leverage the analytical potential of available datasets. This project addresses those gaps by using DAN data to investigate interaction effects, temporal trends, and multivariate relationships among variables such as BMI, depth, and diver demographics. In doing so, it aims to improve understanding of how risk develops and changes over time and to identify patterns not captured in traditional descriptive analysis.
-  </p>
+  </div>
   </main>
 
   <!-- Footer -->

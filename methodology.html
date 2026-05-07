@@ -387,6 +387,7 @@
       <div class="btn-section">
         <a href="#data-source-extraction" class="btn">Data Source and Extraction</a>
         <a href="#geographic-analysis-methodology" class="btn">Geographic Analysis Methodology</a>
+        <a href="#depth-methodology" class="btn">Depth Methodology</a>
         <a href="#medical-methodology" class="btn">Pre-Existing Medical Methodology</a>
         <a href="#network-methodology" class="btn">Network Analysis Methodology</a>
         <a href="#ai-tool-usage" class="btn">AI Tool Usage</a>
@@ -420,6 +421,16 @@
         <h2>Geographic Analysis Methodology</h2>
         <p>
           To visualize the geographic distribution of scuba diving fatalities, the country-by-year data were first reshaped from wide format into long format so that each record represented a specific country and year. The fatalities were then aggregated by country and by year to produce totals for both the full period and individual years. Country names were matched to country codes which allowed the data to be displayed on a Plotly choropleth map. An animated year-by-year map with a slider to show changes over time was created.
+        </p>
+      </section>
+
+      <section class="section-divider" id="depth-methodology">
+        <h2>Depth Methodology</h2>
+        <p>
+          The depth analysis file contained three main fields: year, max depth category, and fatality count. In Python, the table was cleaned and reshaped into long format so each row represented one depth category in one year with its corresponding count. After cleaning labels and converting counts to numeric values, fatalities were aggregated by depth category to identify the most common maximum-depth categories.
+        </p>
+        <p>
+          The visualization produced was a bar chart titled "Most Common Max Depth." This chart was created in Matplotlib/Seaborn and used to summarize which depth ranges had the highest reported fatality concentrations.
         </p>
       </section>
 
