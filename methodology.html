@@ -397,6 +397,16 @@
 
   <main>
     <div class="content-shell">
+      <section id="method-approach">
+        <h2>Methodological Approach and Source Credit</h2>
+        <p>
+          This project uses a mixed-method approach, with quantitative analysis as the primary method and qualitative interpretation as supporting context. The quantitative component includes descriptive statistics (regional and depth distributions), Spearman rank correlation (pre-existing medical conditions versus disabling injuries), and weighted network analysis (trigger to mechanism to disabling injury to cause of death), plus intervention simulation scenarios. These methods were necessary to answer the research question because the question asks which combinations of incident factors are most important and which statistical relationships should guide prevention priorities; each method addresses a different part of that logic, from distribution patterns to associations to pathway structure and leverage points.
+        </p>
+        <p>
+          The qualitative component is used to interpret findings into prevention-focused meaning (for example, how identified pathway hubs and transitions translate into actionable safety priorities). Code implementation and method structure were informed by official library documentation and examples for tools used in this project, including NetworkX DiGraph workflow and the interactive map workflow; those sources are credited in this section contextually and should also be listed in the Works Cited section.
+        </p>
+      </section>
+
       <section id="data-source-extraction">
         <h2>Data Source and Extraction</h2>
 
@@ -527,15 +537,15 @@
           Strengths such as In-Strength, Out-Strength, and Total Strength were calculated:
         </p>
         <ul>
-          <li><strong>In-Strength:</strong> How much "flow" comes into this node (how important is it as a destination?)</li>
-          <li><strong>Out-Strength:</strong> How much "flow" goes out of this node (how important is it as an origin?)</li>
-          <li><strong>Total Strength:</strong> Sum of In and Out strength; raw "traffic" through the node</li>
+          <li>In-Strength: How much "flow" comes into this node (how important is it as a destination?)</li>
+          <li>Out-Strength: How much "flow" goes out of this node (how important is it as an origin?)</li>
+          <li>Total Strength: Sum of In and Out strength; raw "traffic" through the node</li>
         </ul>
         <p>
           For example, the drowning cause of death has 201.1 in-strength and 0 out-strength, representing that it's terminal with no other route possible. Cardiovascular/Neuro Disabling Agent has 117.98 in-strength and 156.51 out-strength, indicating it is a hub. Clinical interpretation: Strength tells you the magnitude of the problem. Drowning's high in-strength means lots of pathways lead there. Cardiovascular's high out-strength means many pathways diverge, some to drowning and some to other causes.
         </p>
         <p>
-          <strong>PageRank</strong> was also computed. PageRank is a ranking of important nodes determined by whether they receive edges from important nodes, weighted by edge strength. The algorithm respects edge weights, so a strong pathway contributes more to importance than a weak one.
+          PageRank was also computed. PageRank is a ranking of important nodes determined by whether they receive edges from important nodes, weighted by edge strength. The algorithm respects edge weights, so a strong pathway contributes more to importance than a weak one.
         </p>
         <ul style="margin: 16px 0;">
           <li>Drowning (0.173) is the most central outcome</li>
@@ -544,15 +554,26 @@
           <li>Drowning is central because everything flows there. Equipment is high-volume but not "central" because it's on the periphery (just triggers).</li>
         </ul>
         <p>
-          <strong>Betweenness Centrality</strong> was computed to find the shortest path for every pair of nodes. This metric identifies which nodes lie in the middle of the most important routes when events move from one category to another. High betweenness allows us to find where the highest leverage is for intervention.
+          Betweenness Centrality was computed to find the shortest path for every pair of nodes. This metric identifies which nodes lie in the middle of the most important routes when events move from one category to another. High betweenness allows us to find where the highest leverage is for intervention.
         </p>
         <p>
           Visualizations were then created representing node sizes and edge width. Larger nodes represent nodes with more traffic through them. Edges are proportional to pathway weight and thicker edges represent stronger pathways.
         </p>
 
+        <h3>Intervention Simulation Methodology</h3>
+        <p>
+          The intervention simulation was implemented in Python using the weighted network edge table generated from the pathway model. First, baseline flow into Drowning Cause was computed as the sum of all edge weights where the target node equals Drowning Cause. Next, priority intervention edges were selected from the disabling-injury-to-cause stage, including Cardio/Neuro Disabling to Drowning Cause, Respiratory Disabling to Drowning Cause, and Pressure Injury Disabling to Drowning Cause.
+        </p>
+        <p>
+          For each selected edge, three scenario levels were tested: 10%, 20%, and 30% reduction. In each scenario, the selected edge weight was multiplied by (1 - reduction level), while all other network edges remained unchanged. The model then recalculated new total flow into Drowning Cause for each scenario.
+        </p>
+        <p>
+          Intervention impact was measured with two metrics: absolute reduction and percent reduction in Drowning Cause flow, where absolute reduction equals baseline drowning in-flow minus new drowning in-flow, and percent reduction equals (absolute reduction / baseline drowning in-flow) times 100. Results were ranked to identify the highest-leverage intervention points and visualized in a horizontal bar chart for the 20% scenario. This is a scenario-based sensitivity simulation used for prioritization, not causal proof.
+        </p>
+
         <h3 id="ai-tool-usage">AI Tool Usage</h3>
         <p>
-          AI tools were used as implementation support during this project. The  development of the research design, choice of methods of analysis, and interpretation of the findings were developed independently by me. The main area where AI support was used was implementation, especially for using the NetworkX DiGraph package and structuring the code as the package was new to me. AI also helped speed up repetitive coding tasks such as restructuring similar tables, debugging, formatting repeated plotting code, and formatting visualizations to be readable. I also used AI for editing sentence structure to help convey ideas better and designing the website to be visually appealing. What worked the best with AI was implementing buttons and navigation in the website which sped up my workflow so I could focus on coding, analysis, and interpretation of results. What did not work as well was the limitations of AI help in interpretation. While AI formatted visualizations better, sometimes AI would visualize the interpretations to be misleading. I had to manually make sure each visualization accurately showcased the findings and get rid of any bias. This process showed that AI can increase efficiency, but the consequence is that researcher oversight is still critical. Without user judgment, cleaning decisions, and interpretation done by the researcher, the analysis can become fast but unreliable.
+          AI tools were used as implementation support during this project. The  development of the research design, choice of methods of analysis, and interpretation of the findings were developed independently by me. The main area where AI support was used was implementation, especially for using the NetworkX DiGraph package, the Interactive Map, and structuring the code as the package was new to me. AI also helped speed up repetitive coding tasks such as restructuring similar tables, debugging, formatting repeated plotting code, and formatting visualizations to be readable. I also used AI for editing sentence structure to help convey ideas better and designing the website to be visually appealing. What worked the best with AI was implementing buttons and navigation in the website which sped up my workflow so I could focus on coding, analysis, and interpretation of results. What did not work as well was the limitations of AI help in interpretation. While AI formatted visualizations better, sometimes AI would visualize the interpretations to be misleading. I had to manually make sure each visualization accurately showcased the findings and get rid of any bias. This process showed that AI can increase efficiency, but the consequence is that researcher oversight is still critical. Without user judgment, cleaning decisions, and interpretation done by the researcher, the analysis can become fast but unreliable.
         </p>
 
         <div class="btn-section">

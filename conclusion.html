@@ -6,29 +6,44 @@
   <title>Conclusion - Scuba Diving Fatalities Research</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #3d4a56; background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%); }
-    nav { position: sticky; top: 0; background: #fdfcfa; border-bottom: 1px solid #e8ecf1; padding: 20px 0; z-index: 100; }
-    .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #1a2634; text-transform: uppercase; }
-    nav ul { display: flex; list-style: none; gap: 40px; }
-    nav a { text-decoration: none; color: #3d4a56; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s ease; }
-    nav a:hover { color: #0891b2; }
-    .hero { padding: 100px 40px; text-align: center; background: linear-gradient(135deg, #f0f6fc 0%, #f5f8fc 100%); border-bottom: 1px solid #e8ecf1; }
-    .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; color: #1a2634; line-height: 1.2; }
-    .hero-subtitle { font-size: 16px; color: #5a6b7a; margin-top: 16px; }
-    main { max-width: 900px; margin: 0 auto; padding: 80px 40px; }
-    h2 { font-size: 28px; font-weight: 700; color: #1a2634; margin: 48px 0 24px 0; letter-spacing: -0.5px; }
+    :root {
+      --bg: #f5f8fc;
+      --panel: #fdfcfa;
+      --line: #e7ebf0;
+      --text: #1a2634;
+      --muted: #5a6b7a;
+      --accent: #0891b2;
+      --footer: #1a2634;
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: var(--muted); background: linear-gradient(180deg, #f8fcff 0%, #ffffff 22%, #c5def6 100%); }
+    nav { position: sticky; top: 0; background: rgba(253, 252, 250, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: 18px 0; z-index: 100; }
+    .nav-container { max-width: 1240px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .logo { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; }
+    nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; list-style: none; gap: 18px 24px; }
+    nav a { text-decoration: none; color: #3f4e5d; font-size: 13px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; transition: color 0.3s ease; }
+    nav a:hover { color: var(--accent); }
+    .announcement { max-width: 1240px; margin: 0 auto; padding: 16px 40px 0; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); }
+    .hero { max-width: 1240px; margin: 0 auto; padding: 24px 40px 44px; }
+    .hero-shell { border: 1px solid var(--line); background: linear-gradient(135deg, #f8fbfe 0%, #fdfcfa 100%); border-radius: 8px; box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06); padding: 28px; }
+    .eyebrow { font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; color: var(--text); line-height: 1.2; }
+    .hero-subtitle { font-size: 16px; color: var(--muted); margin-top: 12px; }
+    main { max-width: 1240px; margin: 0 auto; padding: 0 40px 56px; }
+    .content-shell { border: 1px solid var(--line); background: rgba(255, 255, 255, 0.9); border-radius: 8px; box-shadow: 0 18px 40px rgba(26, 38, 52, 0.06); padding: 38px; }
+    h2 { font-size: 28px; font-weight: 700; color: var(--text); margin: 48px 0 18px 0; letter-spacing: -0.5px; }
     h2:first-child { margin-top: 0; }
-    p { font-size: 16px; line-height: 1.9; color: #5a6b7a; margin-bottom: 24px; }
-    footer { background: #1a2634; color: #b0bcc7; padding: 60px 40px; border-top: 1px solid #e8ecf1; }
+    p { font-size: 16px; line-height: 1.9; color: var(--muted); margin-bottom: 20px; }
+    ul { margin: 8px 0 24px 22px; color: var(--muted); }
+    li { margin-bottom: 10px; }
+    footer { background: var(--footer); color: #b0bcc7; padding: 60px 40px; border-top: 1px solid var(--line); }
     .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
     .footer-section h3 { font-size: 14px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
     .footer-section ul { list-style: none; }
     .footer-section li { margin-bottom: 12px; font-size: 14px; }
     .footer-section a { color: #b0bcc7; text-decoration: none; transition: color 0.3s ease; }
-    .footer-section a:hover { color: #0891b2; }
+    .footer-section a:hover { color: var(--accent); }
     .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 32px; text-align: center; font-size: 14px; color: #7a8a99; max-width: 1200px; margin: 0 auto; }
-    @media (max-width: 768px) { .hero h1 { font-size: 30px; } nav ul { gap: 20px; } nav a { font-size: 12px; } .hero { padding: 60px 20px; } .nav-container { padding: 0 20px; } main { padding: 40px 20px; } footer { padding: 40px 20px; } h2 { font-size: 22px; } }
+    @media (max-width: 768px) { .hero h1 { font-size: 30px; } nav ul { gap: 12px 16px; } nav a { font-size: 12px; } .announcement { padding: 12px 20px 0; } .hero { padding: 22px 20px 40px; } .hero-shell { padding: 24px 20px; } .nav-container { padding: 0 20px; } main { padding: 0 20px 40px; } .content-shell { padding: 28px 22px; } footer { padding: 40px 20px; } h2 { font-size: 22px; } }
   </style>
 </head>
 <body>
@@ -47,35 +62,89 @@
     </div>
   </nav>
 
+  <div class="announcement">Scuba Diving Fatalities Research</div>
+
   <section class="hero">
-    <h1>Conclusion</h1>
-    <p class="hero-subtitle">Summary of findings and implications for future research</p>
+    <div class="hero-shell">
+      <p class="eyebrow">Conclusion</p>
+      <h1>Conclusion</h1>
+      <p class="hero-subtitle">Summary of findings and implications for future research</p>
+    </div>
   </section>
 
   <main>
+  <div class="content-shell">
 
   <p>
-    This project addresses the research question by showing that scuba-fatality patterns from 2010–2020 are concentrated across specific regions, countries, depth ranges, triggers, and mechanisms, rather than being evenly distributed. Proportion-based analysis across years reveals both  patterns  and notable year-to-year shifts.
+    The research question asked "Which combinations of incident factors most strongly characterize fatal scuba diving pathways, and what statistical relationships drive prevention priorities?"
+  </p>
+
+  <h2>Exploratory Analysis</h2>
+  <p>
+    The first part of the analysis conducted geographic and depth analysis. These analyses developed the framework for contextualing the data and establishing that fatalities are not evenly distributed but are concentrated in specific regions, countries, and depth categories. This exploration mapped where reported risk is highest and identified mostly shallow to moderate depth ranges; this contradicts the assumption that risk is primarily a deep-diving issue.
+  </p>
+  <p><strong>Prevention Implications</strong></p>
+  <ul>
+    <li>Strengthen safety messaging for all recreational depth ranges, not only deep dives.</li>
+    <li>Emphasize and reinforce buoyancy control, gas management, and ascent-rate control in entry and refresher training.</li>
+    <li>Promote dive planning with clear turn-pressure, depth, and time limits before descent.</li>
+    <li>Address pressure-injury risk both on ascent in shallower waters and early descent equalization pressure injuries.</li>
+  </ul>
+
+  <h2>Spearman Rank Correlation Analysis</h2>
+  <p>
+    The next part of the analysis was a correlation analysis between pre-existing medical conditions and disabling injuries of the fatality. The analysis revealed medical conditions do not act as direct causes, but instead increase susceptibility to specific disabling injuries. The strongest relationships include hypertension paired with drowning/asphyxia (p = 0.96), cardiovascular disease with cardiac events (p = 0.77) and seizure (p = 0.85), pulmonary conditions with seizure (p = 0.90), and neurological conditions with loss of consciousness (p = 0.79). These findings suggest that prevention in scuba-diving fatalities should focus on condition-specific medical risk management rather than one general screening standard.
+  </p>
+  <p><strong>Prevention Implications</strong></p>
+  <ul>
+    <li>Divers with hypertension need stricter cardiovascular evaluation due to stronger association with drowning/asphyxia outcomes.</li>
+    <li>Divers with cardiovascular disease require fitness protocols that also address seizure-related incapacitation risk.</li>
+    <li>Divers with pulmonary conditions should be assessed for airway limitation and ascent vulnerability.</li>
+    <li>Divers with neurological instability need especially strict clearance decisions because of association with seizure and loss of consciousness underwater.</li>
+    <li>Overall prevention strategy: targeted pre-dive medical assessment, conservative dive planning, and rapid response readiness for loss-of-consciousness and airway emergencies.</li>
+  </ul>
+
+  <h2>Network Analysis</h2>
+  <p>
+    Third, network analysis modeled how triggers, mechanisms, disabling injuries, and causes of death connect. The analysis identified that drowning is the dominant fatal bottleneck (receiving 201.1 units of incoming strength), that cardiovascular and neurological disabling injuries function as a critical hub node with the highest total strength (274.5) and betweenness centrality (0.743), and that equipment-related triggers (72.25 strength) and gas/breathing mechanisms (151.77 strength) dominate the initiating and amplifying stages. Pressure/ascent mechanisms (135.38 strength) form a significant alternate pathway independent of the equipment-gas route.
   </p>
 
   <p>
-    It also highlights a practical issue for safety research that high frequencies of “Unknown” categories can mask true causal patterns and should be investigated.
+    A scenario-based intervention simulation was also run within the network framework by reducing selected high-priority edges and recalculating total flow into Drowning Cause. In the 20% scenario, the strongest modeled reduction came from Cardio/Neuro Disabling to Drowning Cause (9.19%), followed by Respiratory Disabling to Drowning Cause (6.94%) and Pressure Injury Disabling to Drowning Cause (3.39%), supporting targeted prevention at high-leverage late-stage transitions.
   </p>
-
 
   <p>
-    This project is incomplete and has yet to broaden the data analysis into deeper insights, so the research question has not fully been answered yet. While the project does not establish incident-level causality, it provides  evidence on distributional patterns and potential priority areas for inquiry which will be crucial in developing this project further to the final stages.
+    These findings from the network analysis show that prevention should be pathway-focused, because fatal outcomes are driven by connected stages rather than isolated events. Based on the network-analysis points, prevention should be staged across the pathway.
+  </p>
+  <p><strong>Prevention Implications</strong></p>
+  <ul>
+    <li>As drowning is the dominant fatal bottleneck, response systems should prioritize immediate airway protection, rapid recovery, and surface oxygen protocols.</li>
+    <li>Because cardiovascular and neurological disabling injuries were found to be the central hub, prevention should include stricter pre-dive medical screening, fitness-to-dive follow-up for at-risk divers, and training to recognize early signs of cardiac or neurologic compromise before incapacitation occurs.</li>
+    <li>Since equipment-related triggers strongly feed gas/breathing mechanisms, divers and operators should enforce rigorous pre-dive gear checks, regulator/tank redundancy planning, and emergency gas-sharing drills.</li>
+    <li>As pressure/ascent mechanisms form a major alternate pathway, training should emphasize conservative ascent rates, depth/time limits, buoyancy control, and decompression compliance.</li>
+    <li>Because the community/pathway structure shows different incident clusters, prevention should use a two-phase strategy that combines upstream risk reduction (medical clearance, equipment reliability, dive planning) with downstream emergency interruption (rapid rescue, airway management, post-incident oxygen care).</li>
+  </ul>
+
+  <p>
+    Overall, the prevention implication is to prioritize interventions at high-leverage transition points that have been statistically proven in the network analysis to interrupt progression before pathways converge on drowning.
   </p>
 
-  <h2>Limitations</h2>
   <p>
-    Results depend on the consistency and completeness of the data which had "Unknown" values. Tables limit the ability to model individual-level interactions which is the strongest way to perform analysis. Missing  values also reduce the effectiveness of interpretation.
+    Together, these findings directly address the combinations of factors driving fatalities. The statistical relationships quantitatively identify which preventative measure combinations have the greatest impact. Contributing to the larger conversation regarding scuba diving, I believe these findings have significant potential to contribute to prevention efforts regarding fatalities.
   </p>
 
-  <h2>Future Questions</h2>
   <p>
-    This project raises several next-step questions: How would patterns change if “Unknown” were reduced through improved reporting? Which country- or region-specific contexts explain shifts in annual composition? Do certain trigger-mechanism combinations become more prominent in particular depth ranges or diver-experience groups?
+    This research develops and answers the research question to a significant degree as many actionable prevention tactics based off of statistical backings. Future questions based off of these findings include:
   </p>
+
+  <ul>
+    <li>Do equipment-origin pathways vary by gear type, maintenance history, or rental vs personal equipment?</li>
+    <li>What insights can incident-level sequence data (instead of aggregate yearly tables) improve causal pathway modeling and prediction?</li>
+    <li>What proportion of fatal pathways could be interrupted by earlier airway/LOC detection and rescue timing improvements?</li>
+    <li>How do non-fatal incidents compare to fatal pathways, and what distinguishes incidents that become fatal?</li>
+  </ul>
+
+  </div>
   </main>
 
   <footer>
