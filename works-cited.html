@@ -66,6 +66,35 @@
       white-space: nowrap;
     }
 
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #3f4e5d;
+      border-radius: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 10px; }
+    .nav-toggle span:nth-child(2) { top: 19px; }
+    .nav-toggle span:nth-child(3) { top: 28px; }
+
     nav ul {
       display: flex;
       flex-wrap: wrap;
@@ -273,12 +302,46 @@
         padding: 40px 20px;
       }
     }
+    /* Hamburger menu */
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; }
+      nav ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: rgba(253, 252, 250, 0.96);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+        border-bottom: 1px solid var(--line);
+      }
+      nav[data-open="true"] ul { max-height: 420px; }
+      nav ul li { width: 100%; border-top: 1px solid var(--line); }
+      nav ul li:first-child { border-top: none; }
+      nav a { display: block; padding: 16px 24px; }
+      .nav-container { align-items: center; }
+    }
+
+    nav[data-open="true"] .nav-toggle span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    nav[data-open="true"] .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav[data-open="true"] .nav-toggle span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .hero-shell { min-width: 0; }
+    .hero h1 { overflow-wrap: break-word; word-break: break-word; }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-container">
       <div class="logo">Research</div>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="literature.html">Literature</a></li>
@@ -376,7 +439,6 @@
         <ul>
           <li><a href="conclusion.html">Conclusion</a></li>
           <li><a href="works-cited.html">Works Cited</a></li>
-          <li><a href="Code.ipynb">Code Notebook</a></li>
         </ul>
       </div>
     </div>
@@ -384,5 +446,23 @@
       <p>&copy; 2026 Miranda Grein | Scuba Diving Fatalities Project</p>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const nav = document.querySelector('nav');
+      const toggle = document.querySelector('.nav-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.getAttribute('data-open') === 'true';
+        nav.setAttribute('data-open', isOpen ? 'false' : 'true');
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900 && nav.getAttribute('data-open') === 'true') {
+          nav.setAttribute('data-open', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
